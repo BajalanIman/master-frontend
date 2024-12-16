@@ -31,7 +31,7 @@ const UserManagement = () => {
 
   return (
     <div className="flex w-full h-screen  justify-center">
-      <Box sx={{ width: "1450px" }}>
+      <Box sx={{ width: "1200px" }}>
         <Typography
           variant="h4"
           sx={{

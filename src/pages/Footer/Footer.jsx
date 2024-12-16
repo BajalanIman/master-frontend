@@ -44,7 +44,7 @@ const Footer = () => {
           display: "flex",
           alignItems: "center",
           gap: 2,
-          width: { lg: "1450px" },
+          width: { lg: "1200px" },
         }}
       >
         <IconButton
@@ -110,7 +110,7 @@ const Footer = () => {
         <Divider
           sx={{
             my: 2,
-            width: { lg: "1450px" },
+            width: { lg: "1200px" },
           }}
         />
       </Box>
@@ -122,7 +122,7 @@ const Footer = () => {
           justifyContent: "space-between",
           flexWrap: "wrap",
           gap: 2,
-          width: { lg: "1450px" },
+          width: { lg: "1200px" },
         }}
       >
         <a
@@ -256,7 +256,7 @@ const Footer = () => {
           <Divider
             sx={{
               mt: 2,
-              width: { lg: "1450px" },
+              width: { lg: "1200px" },
             }}
           />
         </Box>

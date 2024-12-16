@@ -9,7 +9,7 @@ const Dashboard = () => {
 
   const handleChange = (event) => {
     setDefineValues(event.target.value);
-    setSelectOpen(false); // Ensure the Select box closes on change
+    setSelectOpen(false);
   };
 
   const [usernameChecker, setUsernameChecker] = useState("");
@@ -37,7 +37,7 @@ const Dashboard = () => {
 
   return (
     <>
-      <Box sx={{ Width: { xs: "100px", md: "200px" } }}>
+      <Box>
         <Link className="w-18" to={"/"} />
         <FormControl sx={{ width: "200px" }} fullWidth>
           <InputLabel id="demo-simple-select-label" sx={{ color: "white" }}>

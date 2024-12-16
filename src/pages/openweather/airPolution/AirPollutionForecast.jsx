@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState, useContext } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import Linechart from "../Linechart";
 import AirPollutionToDatabase from "./AirPollutionToDatabase";
 import { localize } from "../../../Translation.jsx";
@@ -12,7 +12,6 @@ const AirPollutionForecast = () => {
   const location = useLocation();
   const { state } = location;
 
-  // Provide default values if state is not available
   const effectiveName = state?.name || "Unknown Station";
   const effectiveInfoOne = state?.infoOne || "No Info";
   const effectiveInfoTwo = state?.infoTwo || "No Info";
@@ -82,7 +81,7 @@ const AirPollutionForecast = () => {
       <Typography
         variant="body1"
         sx={{
-          maxWidth: "1450px",
+          maxWidth: "1200px",
           display: "block",
           paddingY: "24px",
           textAlign: "justify",

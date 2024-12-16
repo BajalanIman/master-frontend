@@ -11,20 +11,24 @@ import {
 import { Link } from "react-router-dom";
 import { DarkModeSwitch } from "react-toggle-dark-mode";
 
-import { localize } from "../../Translation.jsx";
-import { CartContext } from "../../App";
-import Dashboard from "./login/Dashboard.jsx";
+import { localize } from "../../../Translation.jsx";
+import { CartContext } from "../../../App.jsx";
+import Dashboard from "../login/Dashboard.jsx";
 import { useContext } from "react";
 
-import AllStations from "./AllStations.jsx";
-import Search from "./Search";
-import ChangeLanguage from "./ChangeLanguage";
+import AllStations from "../AllStations.jsx";
+import ChangeLanguage from "../ChangeLanguage.jsx";
 import { useState } from "react";
 import {
   HelpOutlineOutlined,
   HomeOutlined,
   InfoOutlined,
 } from "@mui/icons-material";
+
+import styles from "./NavigationBarMobile.module.css";
+import HomeSVG from "../../Icons/HomeSVG.jsx";
+import InfoSVG from "../../Icons/InfoSVG.jsx";
+import Question from "../../Icons/Question.jsx";
 
 const NavigationBarMobile = ({ darkModeHandler }) => {
   let { language } = useContext(CartContext);
@@ -36,36 +40,27 @@ const NavigationBarMobile = ({ darkModeHandler }) => {
   };
 
   return (
-    <div className="sm:max-w-[640px] flex flex-col mb-1 p-x-1">
-      <Toolbar
-        sx={{
-          display: "flex",
-          justifyContent: "space-between",
-          marginBottom: 2,
-        }}
-      >
+    <div className={styles.main_container}>
+      <div className={styles.toolbar}>
         <Link to={"/"}>
-          {/* {localize(language, "Home")} */}
-          <HomeOutlined sx={{ width: 40, height: 40, marginTop: 2 }} />
+          <HomeSVG width={"30px"} />
         </Link>
         <Link to="/about">
-          {/* {localize(language, "About")} */}
-          <InfoOutlined sx={{ width: 40, height: 40, marginTop: 2 }} />
+          <InfoSVG width={"30px"} />
         </Link>
         <Link to="/help">
-          {/* {localize(language, "Help")} */}
-          <HelpOutlineOutlined sx={{ width: 40, height: 40, marginTop: 2 }} />
+          <Question width={"30px"} />
         </Link>
         <DarkModeSwitch
           checked={darkSide}
           onChange={darkModeHandlers}
-          style={{ width: 40, height: 40, marginTop: 15, color: "white" }}
+          style={{ width: 30, height: 30, color: "white" }}
           sunColor={"#666600"}
         />
-        <div className="mt-[-10px]">
+        <div>
           <ChangeLanguage />
         </div>
-      </Toolbar>
+      </div>
       <Box
         sx={{
           display: "flex",

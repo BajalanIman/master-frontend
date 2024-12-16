@@ -3,112 +3,79 @@ import { localize } from "../../../Translation.jsx";
 import { CartContext } from "../../../App.jsx";
 
 import React, { useContext } from "react";
+import styles from "./Help.module.css";
 
 const Help = () => {
   let { language } = useContext(CartContext);
 
   return (
-    <div className="flex justify-center  relative items-center flex-col ">
-      <Box
-        sx={{
-          maxWidth: "1450px",
-          position: "relative",
-          paddingX: { xs: 2, md: 0 },
-          textAlign: "justify",
-        }}
-      >
-        <Typography
-          variant="h5"
-          sx={{
-            mt: 8,
-            mb: 3,
-            fontFamily: "Abril Fatface",
-            fontWeight: 300,
-            textAlign: { xs: "start", md: "justify" },
-          }}
-        >
+    <div className={styles.help_container}>
+      <div className={styles.help}>
+        <h4 className={styles.titles}>
           {localize(language, "helpNavigating")}
-        </Typography>
-        <Typography variant="body1" sx={{ mb: 5 }}>
+        </h4>
+        <p className={styles.paragraphs}>
           {localize(language, "helpNavigatingP")}
-        </Typography>
-        <Typography variant="h5" sx={{ mt: 4, mb: 2, fontWeight: "bold" }}>
+        </p>
+        <h4 className={styles.sub_titles}>
           {localize(language, "gettingStarted")}
-        </Typography>
-
-        <Typography variant="body1" sx={{ mb: 3 }}>
+        </h4>
+        <p className={styles.paragraphs}>
           {localize(language, "gettingStartedP")}
-        </Typography>
-        <Typography variant="h6" sx={{ fontWeight: "bold" }}>
+        </p>
+        <h4 className={styles.sub_titles}>
           {"1: "} {localize(language, "exploreFeatures")}
-        </Typography>
-        <Typography variant="body1" sx={{ mb: 3 }}>
+        </h4>
+        <p className={styles.paragraphs}>
           {localize(language, "exploreFeaturesP")}
-        </Typography>
-
-        <Typography variant="h6" sx={{ fontWeight: "bold" }}>
+        </p>
+        <h4 className={styles.sub_titles}>
           {"2: "} {localize(language, "navigatingDashboard")}
-        </Typography>
-        <Typography variant="body1" sx={{ mb: 3 }}>
+        </h4>
+        <p className={styles.paragraphs}>
           {localize(language, "navigatingDashboardP")}
-        </Typography>
-        <Typography variant="h6" sx={{ fontWeight: "bold" }}>
+        </p>
+        <h4 className={styles.sub_titles}>
           {"3: "} {localize(language, "interactiveMapsHelp")}
-        </Typography>
-        <Typography variant="body1" sx={{ mb: 3 }}>
+        </h4>
+        <p className={styles.paragraphs}>
           {localize(language, "interactiveMapsHelpP1")}
-        </Typography>
-
-        <Typography variant="h6" sx={{ fontWeight: "bold" }}>
+        </p>
+        <h4 className={styles.sub_titles}>
           {"4: "} {localize(language, "accessingData")}
-        </Typography>
-        <Typography variant="body1" sx={{ mb: 3 }}>
+        </h4>
+        <p className={styles.paragraphs}>
           {localize(language, "accessingDataP1")}
-        </Typography>
-        <Divider sx={{ padding: 2 }}></Divider>
-        <Typography
-          variant="h5"
-          sx={{ mt: 5, mb: 3, fontWeight: "bold", fontFamily: "Abril Fatface" }}
-        >
+        </p>
+        <hr className={styles.deviders}></hr>{" "}
+        <h5 className={styles.titles}>
           {localize(language, "frequentlyAskedQuestions")}
-        </Typography>
-
-        <Typography
-          variant="h6"
-          sx={{ fontWeight: "bold", textAlign: { xs: "start", md: "justify" } }}
-        >
-          {localize(language, "howFrequentlyUpdated")}{" "}
-        </Typography>
-        <Typography variant="body1" sx={{ mb: 3 }}>
+        </h5>
+        <h5 className={styles.sub_titles}>
+          {localize(language, "howFrequentlyUpdated")}
+        </h5>
+        <p className={styles.paragraphs}>
           {localize(language, "howFrequentlyUpdatedP1")}{" "}
-        </Typography>
-
-        <Typography variant="h6" sx={{ fontWeight: "bold" }}>
+        </p>
+        <h5 className={styles.sub_titles}>
           {localize(language, "canAccessHistoricalData")}{" "}
-        </Typography>
-        <Typography variant="body1" sx={{ mb: 3 }}>
+        </h5>
+        <p className={styles.paragraphs}>
           {localize(language, "canAccessHistoricalDataP1")}
-        </Typography>
-
-        <Typography
-          variant="h6"
-          sx={{ fontWeight: "bold", textAlign: { xs: "start", md: "justify" } }}
-        >
+        </p>
+        <h5 className={styles.sub_titles}>
           {localize(language, "HowCanInterpretDat")}{" "}
-        </Typography>
-        <Typography variant="body1" sx={{ mb: 3 }}>
+        </h5>
+        <p className={styles.paragraphs}>
           {localize(language, "HowCanInterpretDatP1")}
-        </Typography>
-        <Typography
-          variant="h6"
-          sx={{ fontWeight: "bold", textAlign: { xs: "start", md: "justify" } }}
-        >
+        </p>
+        <h5 className={styles.sub_titles}>
           {localize(language, "accessibleMobileDevices")}
-        </Typography>
-        <Typography variant="body1" sx={{ mb: 8 }}>
+        </h5>
+        <p className={styles.paragraphs}>
           {localize(language, "accessibleMobileDevicesP1")}{" "}
-        </Typography>
-      </Box>
+        </p>
+      </div>
     </div>
   );
 };

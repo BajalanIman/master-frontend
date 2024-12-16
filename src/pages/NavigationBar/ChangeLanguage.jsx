@@ -25,14 +25,8 @@ const ChangeLanguage = () => {
   ];
 
   return (
-    <FormControl
-      sx={{
-        width: { sx: "200px", md: "300px" },
-      }}
-    >
-      <InputLabel id="language-select-label">
-        {localize(language, "Language")}
-      </InputLabel>
+    <FormControl>
+      {/* <label id="language-select-label">{localize(language, "Language")}</label> */}
       <Select
         labelId="language-select-label"
         id="language-select"
@@ -50,7 +44,6 @@ const ChangeLanguage = () => {
                 alt={language.code}
                 className="w-7 h-5"
               />
-              {/* <span>{language.label}</span> */}
               <Box
                 component="span"
                 sx={{ display: { xs: "none", md: "flex" } }}

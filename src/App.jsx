@@ -1,16 +1,15 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { useState, createContext, useEffect } from "react";
-import RootLayout from "./pages/Root";
+import RootLayout from "./pages/Root/Root";
 import Home from "./pages/Home";
-import MapBrandenbur from "./pages/map/MapBrandenbur";
+import MapBrandenbur from "./pages/map/MapBrandenburg/MapBrandenbur";
 import Panoramas from "./pages/panorama/Panoramas";
 import Openweather from "./pages/openweather/Openweather";
-// import TestDatabase from "./TestDatabase";
-import Login from "./pages/admin/users/Login";
+import Login from "./pages/admin/users/Login/Login";
 import NewUsers from "./pages/admin/users/NewUsers";
 import UserManagement from "./pages/admin/users/UserManagement";
-import About from "./pages/NavigationBar/about/About";
-import Help from "./pages/NavigationBar/help/Help";
+import About from "./pages/NavigationBar/About/About";
+import Help from "./pages/NavigationBar/Help/Help";
 import ContactForm from "./pages/Footer/ContactForm";
 import AdminDataSender from "./pages/admin/adminDataSender";
 
@@ -55,7 +54,6 @@ function App() {
           <RouterProvider router={router}></RouterProvider>
         </div>
       </CartContext.Provider>
-      <div className="w-full flex justify-center bg-red-500"></div>
     </>
   );
 }
