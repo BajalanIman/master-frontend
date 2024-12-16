@@ -1,0 +1,16 @@
+.rootContainer {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.lightMode {
+  background-color: #fff;
+  color: rgb(31, 41, 55);
+}
+
+.darkMode {
+  background-color: rgb(31, 41, 55);
+  color: #fff;
+}

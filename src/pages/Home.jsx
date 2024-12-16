@@ -1,4 +1,4 @@
-import MapBrandenbur from "./map/MapBrandenbur";
+import MapBrandenbur from "./map/MapBrandenburg/MapBrandenbur";
 const Home = () => {
   return (
     <div>

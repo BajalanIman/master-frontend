@@ -27,7 +27,7 @@ const ContactForm = () => {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          width: { lg: "1450px" },
+          width: { lg: "1200px" },
         }}
       >
         <Box
