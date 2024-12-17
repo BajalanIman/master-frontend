@@ -9,6 +9,7 @@ import { useContext, useEffect, useState } from "react";
 import axios from "axios";
 
 import styles from "./MapBrandenbur.module.css";
+import { BASE_URL } from "../../../constants/constants.js";
 
 const MapBrandenbur = () => {
   const position = [52.52, 13.405];
@@ -26,7 +27,7 @@ const MapBrandenbur = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("http://localhost:8800/station");
+        const response = await axios.get(`${BASE_URL}station`);
         setStationInformation(response.data);
       } catch (error) {
         console.error("Error fetching data:", error);

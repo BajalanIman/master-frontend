@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { BASE_URL } from "../src/constants/constants";
 
 const TestDatabase = () => {
   const [combinedData, setCombinedData] = useState([]);
@@ -7,7 +8,7 @@ const TestDatabase = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("http://localhost:8800/combinedData");
+        const response = await axios.get(`${BASE_URL}combinedData`);
         setCombinedData(response.data);
         console.log(combinedData);
       } catch (error) {

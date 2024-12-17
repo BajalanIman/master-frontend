@@ -9,6 +9,7 @@ import { useContext } from "react";
 
 import ImageViewerCustom from "./ImageViewerCustom.jsx";
 import axios from "axios";
+import { BASE_URL } from "../../constants/constants.js";
 
 const Panoramas = () => {
   const [mainPhotos, setMainPhotos] = useState([]);
@@ -62,7 +63,7 @@ const Panoramas = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("http://localhost:8800/photos");
+        const response = await axios.get(`${BASE_URL}photos`);
         setMainPhotos(response.data);
       } catch (error) {
         console.error("Error fetching data:", error);

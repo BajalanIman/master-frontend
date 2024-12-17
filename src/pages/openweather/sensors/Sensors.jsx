@@ -10,6 +10,7 @@ import { CartContext } from "../../../App";
 import SensorsLinechartMulti from "./SensorsLinechartMulti";
 import SensorsLinechartMultiClimate from "./SensorsLinechartMultiClimate.jsx";
 import SensorsLinechartMultiClimateTwoside from "./SensorsLinechartMultiClimateTwoside.jsx";
+import { BASE_URL } from "../../../constants/constants.js";
 
 const Sensors = () => {
   const { language } = useContext(CartContext);
@@ -59,9 +60,7 @@ const Sensors = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(
-          "http://localhost:8800/soil_measurements"
-        );
+        const response = await axios.get(`${BASE_URL}soil_measurements`);
         setSoilMeasurements(response.data);
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -74,9 +73,7 @@ const Sensors = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(
-          "http://localhost:8800/climate_measurements"
-        );
+        const response = await axios.get(`${BASE_URL}climate_measurements`);
         setClimateMeasurements(response.data);
       } catch (error) {
         console.error("Error fetching data:", error);

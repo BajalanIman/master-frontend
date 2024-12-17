@@ -14,6 +14,7 @@ import CloseBTN from "./CloseBTN";
 
 import PopupEnrolment from "./PopupEnrolment";
 import axios from "axios";
+import { BASE_URL } from "../../../constants/constants";
 
 const NewUsers = () => {
   const [nameValue, setNameValue] = useState("");
@@ -85,7 +86,7 @@ const NewUsers = () => {
         email: emailValue,
         role: "normal",
       };
-      axios.post(`http://localhost:8800/users`, data).then((res) => {
+      axios.post(`${BASE_URL}users`, data).then((res) => {
         console.log(res.data);
         if (res.data.message == "Record inserted successfully") {
           setPasswordValue("");

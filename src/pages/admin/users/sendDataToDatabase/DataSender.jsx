@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { Box, Button, Modal, Typography } from "@mui/material";
+import { BASE_URL } from "../../../../constants/constants";
 
 const DataSender = ({
   soilAttributeIds,
@@ -99,10 +100,7 @@ const DataSender = ({
         console.log(`Sending ${chunk.length} records to ${endpoint}`);
         const startSending = performance.now();
         try {
-          await axios.post(
-            `http://localhost:8800/bulk_${endpoint}_measurements`,
-            chunk
-          );
+          await axios.post(`${BASE_URL}bulk_${endpoint}_measurements`, chunk);
           console.log(`Sent ${endpoint} data chunk`);
         } catch (error) {
           console.error(`Error sending ${endpoint} data:`, error);
