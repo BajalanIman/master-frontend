@@ -117,11 +117,9 @@ const NewUsers = () => {
   let inputClassStyle = {
     display: "flex",
     justifyContent: "space-between",
-
     gap: "30px",
     alignItems: "center",
     border: "1px solid ",
-    borderColor: "darkgreen",
     borderColor: "darkgreen",
     "&:hover": {
       borderColor: "darkgreen",
@@ -156,7 +154,6 @@ const NewUsers = () => {
         <Typography
           variant="h5"
           sx={{
-            fontWeight: "bold",
             marginBottom: "15px",
             fontFamily: "Abril Fatface",
             fontWeight: 300,

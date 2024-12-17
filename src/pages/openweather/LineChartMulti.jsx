@@ -54,7 +54,6 @@ function LineChartMulti({
       {
         label: labelTwo,
         data: newDataTwo,
-        backgroundColor: "rgba(255 180 50 / 75%)",
         borderColor: "rgba(145 180 50 / 75%)",
         pointBorderColor: "rgba(105 180 50 / 75%)",
         backgroundColor: "rgba(105 180 50 / 75%)",
