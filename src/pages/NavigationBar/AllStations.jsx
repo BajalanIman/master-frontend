@@ -6,6 +6,7 @@ import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { BASE_URL } from "../../constants/constants";
 
 const AllStations = () => {
   const [stationInformation, setStationInformation] = useState([]);
@@ -17,7 +18,7 @@ const AllStations = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("http://localhost:8800/station");
+        const response = await axios.get(`${BASE_URL}station`);
         setStationInformation(response.data);
       } catch (error) {
         console.error("Error fetching data:", error);

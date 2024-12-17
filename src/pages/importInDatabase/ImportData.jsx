@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
+import { BASE_URL } from "../../constants/constants";
 
 const ImportData = () => {
   const [dataFromDatabase, setDataFromDatabase] = useState([]);
@@ -7,7 +8,7 @@ const ImportData = () => {
   useEffect(() => {
     const fetchAllperson = async () => {
       try {
-        const res = await axios.get("http://localhost:8800/forstbotanischer");
+        const res = await axios.get(`${BASE_URL}forstbotanischer`);
         setDataFromDatabase(res.data);
       } catch (err) {
         console.log(err);

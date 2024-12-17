@@ -14,6 +14,8 @@ import {
 import styles from "./Login.module.css";
 import CloseBTN from "../CloseBTN";
 
+import { BASE_URL } from "../../../../constants/constants";
+
 const Login = () => {
   const [emailValue, setEmailValue] = useState("");
   const [passwordValue, setPasswordValue] = useState("");
@@ -44,7 +46,7 @@ const Login = () => {
     }
 
     try {
-      const response = await axios.post(`http://localhost:8800/login`, {
+      const response = await axios.post(`${BASE_URL}login`, {
         email: emailValue,
         password: passwordValue,
       });

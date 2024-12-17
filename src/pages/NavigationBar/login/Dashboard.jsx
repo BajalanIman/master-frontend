@@ -1,4 +1,11 @@
-import { Box, FormControl, InputLabel, MenuItem, Select } from "@mui/material";
+import {
+  Box,
+  Divider,
+  FormControl,
+  InputLabel,
+  MenuItem,
+  Select,
+} from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import PopupLogout from "./PopupLogout";
@@ -53,6 +60,15 @@ const Dashboard = () => {
             onClose={() => setSelectOpen(false)}
             onOpen={() => setSelectOpen(true)}
           >
+            <MenuItem
+              component={Link}
+              to="/data-downloader"
+              onClick={() => setSelectOpen(false)}
+              value={"dataDownloader"}
+            >
+              Download data
+            </MenuItem>
+            <Divider />
             {usernameChecker && passwordChecker && (
               <MenuItem value={"Username"}>Hi {nameChecker}</MenuItem>
             )}

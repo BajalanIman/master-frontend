@@ -12,6 +12,7 @@ import About from "./pages/NavigationBar/About/About";
 import Help from "./pages/NavigationBar/Help/Help";
 import ContactForm from "./pages/Footer/ContactForm";
 import AdminDataSender from "./pages/admin/adminDataSender";
+import DataDownloader from "./pages/NavigationBar/DataDownloader/DataDownloader";
 
 export const CartContext = createContext({ 123: 1 });
 
@@ -31,6 +32,7 @@ const router = createBrowserRouter([
       { path: "/help", element: <Help /> },
       { path: "/contact", element: <ContactForm /> },
       { path: "/admin-data-sender", element: <AdminDataSender /> },
+      { path: "/data-downloader", element: <DataDownloader /> },
     ],
   },
 ]);

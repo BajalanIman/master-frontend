@@ -1,0 +1,25 @@
+.download_page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.download_container {
+  width: 1200px;
+  max-width: 1200px;
+  height: 100%;
+  position: relative;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 10px 20px 20px;
+}
+
+.titles {
+  margin-top: 30px;
+  margin-bottom: 10px;
+  font-family: "Abril Fatface";
+  font-weight: bold;
+}
