@@ -19,7 +19,7 @@ const DataDownloader = () => {
         <Divider
           sx={{
             bgcolor: "darkGray",
-            width: "400px",
+            width: "300px",
             mt: 5,
           }}
         />

@@ -135,9 +135,9 @@ const StationsData = ({
   return (
     <Box
       sx={{
-        margin: "0 auto",
+        margin: "0px",
         mt: 4,
-        width: "400px",
+        width: "350px",
         boxShadow: "1px 1px 1px 1px gray",
         padding: "10px",
         borderRadius: "5px",

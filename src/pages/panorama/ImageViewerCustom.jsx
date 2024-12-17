@@ -19,7 +19,6 @@ const ImageViewerCustom = ({ photoData }) => {
         variant="h4"
         sx={{
           marginTop: 8,
-          fontWeight: "bold",
           fontFamily: "Lobster",
           fontWeight: 500,
           fontStyle: "large",

@@ -70,7 +70,6 @@ const Openweather = () => {
               justifyContent: "center",
               alignItems: "center",
               justifyItems: "center",
-              justifyContent: "center",
               borderTopRightRadius: 10,
               borderBottomRightRadius: 10,
               py: { xs: 0, md: 2 },
