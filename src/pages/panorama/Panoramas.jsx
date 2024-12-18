@@ -140,7 +140,6 @@ const Panoramas = () => {
             sx={{
               mt: 2,
               textAlign: "center",
-
               justifyContent: "center",
               paddingY: { xs: "20px", md: "34px" },
               fontFamily: "Abril Fatface",
