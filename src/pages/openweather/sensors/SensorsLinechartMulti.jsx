@@ -1,13 +1,16 @@
 import {
   Box,
+  CircularProgress,
   FormControl,
   InputLabel,
   MenuItem,
   Select,
   Typography,
 } from "@mui/material";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Line } from "react-chartjs-2";
+import { localize } from "../../../Translation.jsx";
+import { CartContext } from "../../../App.jsx";
 
 const SensorsLinechartMulti = ({
   title,
@@ -24,6 +27,7 @@ const SensorsLinechartMulti = ({
   VariableFour,
   XCaption,
 }) => {
+  const { language } = useContext(CartContext);
   const [year, setYear] = useState("");
   const [month, setMonth] = useState("");
   const [filteredData, setFilteredData] = useState([]);
@@ -279,10 +283,10 @@ const SensorsLinechartMulti = ({
             {/* Year */}
             <FormControl fullWidth>
               <InputLabel sx={{ color: "green" }} id="demo-simple-select-label">
-                Year
+                {localize(language, "Year")}
               </InputLabel>
               <Select value={year} onChange={handleYearChange}>
-                <MenuItem value="">Select Year</MenuItem>
+                <MenuItem value="">{localize(language, "SelectYear")}</MenuItem>
                 {availableYears.map((year) => (
                   <MenuItem key={year} value={year}>
                     {year}
@@ -293,10 +297,10 @@ const SensorsLinechartMulti = ({
             {/* Months */}
             <FormControl fullWidth sx={{ marginTop: { lg: 5 } }}>
               <InputLabel sx={{ color: "green" }} id="demo-simple-select-label">
-                Month
+                {localize(language, "Month")}
               </InputLabel>
               <Select value={month} onChange={handleMonthChange}>
-                <MenuItem value="">All months</MenuItem>
+                <MenuItem value="">{localize(language, "AllMonths")}</MenuItem>
                 {monthNames.map((ele, index) => (
                   <MenuItem key={index} value={ele}>
                     {ele}
@@ -329,12 +333,15 @@ const SensorsLinechartMulti = ({
           )}
         </Box>
       ) : (
-        <Typography
-          variant="body1"
-          sx={{ textAlign: "center", color: "red", paddingX: { xs: 2, md: 0 } }}
-        >
-          No data is available at this station for {title}.
-        </Typography>
+        // <Typography
+        //   variant="body1"
+        //   sx={{ textAlign: "center", color: "red", paddingX: { xs: 2, md: 0 } }}
+        // >
+        //   No data is available at this station for {title}.
+        // </Typography>
+        <div className="flex justify-center my-5">
+          <CircularProgress color="success" />
+        </div>
       )}
     </>
   );

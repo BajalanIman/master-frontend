@@ -32,11 +32,11 @@ const BucheStation = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const apiUrl =
-        "https://logstar-online.de/api/c73b3c88-441a-4b3e-a06b-b5fde1cb2d55/buche/2022-01-03/2024-06-23";
+      const BucheUrl =
+        "https://logstar-online.de/api/c73b3c88-441a-4b3e-a06b-b5fde1cb2d55/buche/2023-06-01/2024-06-28";
 
       try {
-        const response = await axios.get(apiUrl);
+        const response = await axios.get(BucheUrl);
         setDataFromAPI(response.data.data);
       } catch (error) {
         console.error(error);
@@ -44,6 +44,8 @@ const BucheStation = () => {
     };
     fetchData();
   }, []);
+
+  console.log(dataFromAPI);
 
   useEffect(() => {
     if (dataFromAPI && dataFromAPI.length > 0) {

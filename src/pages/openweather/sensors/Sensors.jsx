@@ -109,61 +109,51 @@ const Sensors = () => {
             variant="body1"
             sx={{ mt: 4, paddingX: { xs: 2, md: 0 }, textAlign: "justify" }}
           >
-            On this page, only a selection of the variables collected from the
-            station is shown. For more detailed information about additional
-            variables and data points collected by the station, please contact
-            the administrator. They can provide comprehensive insights and
-            access to the full dataset.
+            {localize(language, "SensorsPage")}
           </Typography>
           <SensorsLinechartMulti
-            title={"Soil temperature"}
+            title={localize(language, "SoilTemperature")}
             attribute_id_One={4}
             attribute_id_Two={8}
             attribute_id_Three={12}
             paragraph={localize(language, "soilDifferentDeep")}
-            Ylabel={"Soil temperature (°C)"}
+            Ylabel={`${localize(language, "SoilTemperature")} (°C)`}
             VariableOne={"10 cm"}
             VariableTwo={"30 cm"}
             VariableThree={"60 cm"}
             mainData={soilData}
-            XCaption={
-              "The chart above shows soil temperature at different depths."
-            }
+            XCaption={localize(language, "SoilTemperatureXCaption")}
           />
           <Divider />
           <SensorsLinechartMulti
-            title={"Water content"}
+            title={localize(language, "WaterContent")}
             attribute_id_One={3}
             attribute_id_Two={7}
             attribute_id_Three={11}
             paragraph={localize(language, "waterDifferentDeep")}
-            Ylabel={"Water content (%)"}
+            Ylabel={`${localize(language, "WaterContent")} (%)`}
             VariableOne={"10 cm"}
             VariableTwo={"30 cm"}
             VariableThree={"60 cm"}
             mainData={soilData}
-            XCaption={
-              "The chart above shows water content at different depths."
-            }
+            XCaption={localize(language, "WaterContentXCaption")}
           />
           <Divider />
           <SensorsLinechartMulti
-            title={"Permittivity"}
+            title={localize(language, "Permittivity")}
             attribute_id_One={2}
             attribute_id_Two={6}
             attribute_id_Three={10}
-            paragraph={`Permittivity in soil, also known as the dielectric constant, is a measure of how much the soil can store electrical energy in an electric field, reflecting its ability to transmit an electric field. This property is crucial in fields such as agriculture, hydrology, and environmental science, as it affects soil moisture content measurements and soil behavior under electrical fields. Defined as a material property indicating how an electric field affects and is affected by a dielectric medium, soil permittivity refers to the soil's ability to hold and transmit electrical charges. Typically measured using dielectric sensors, which send an electrical signal through the soil and measure the response, this measurement can estimate soil moisture content since water has a high permittivity compared to dry soil components. Water significantly increases soil permittivity because polar water molecules align with the electric field, making permittivity a proxy for soil moisture content. Applications include optimizing irrigation practices in agriculture, understanding soil properties for construction and land management in geotechnical engineering, and studying water movement and soil health in environmental science. Factors such as soil type, density, temperature, and salinity influence soil permittivity, making it a valuable parameter for improving irrigation efficiency, managing water resources, and studying environmental changes.`}
-            Ylabel={"Permittivity (ε)"}
+            paragraph={localize(language, "PermittivityParagraph")}
+            Ylabel={`${localize(language, "Permittivity")} (ε)`}
             VariableOne={"10 cm"}
             VariableTwo={"30 cm"}
             VariableThree={"60 cm"}
             mainData={soilData}
-            XCaption={
-              "The chart above shows the permittivity at different depths."
-            }
+            XCaption={localize(language, "PermittivityXCaption")}
           />
           <Divider />
-          <SensorsLinechartMultiClimate
+          {/* <SensorsLinechartMultiClimate
             title={"Relative humidity"}
             attribute_id_One={2}
             attribute_id_Two={3}
@@ -178,61 +168,28 @@ const Sensors = () => {
               "The chart above shows the maximum and minimum relative humidity."
             }
           />{" "}
-          <Divider />
+          <Divider /> */}
           <SensorsLinechartMultiClimate
-            title={"Air temperature"}
+            title={localize(language, "AirTemperature")}
             attribute_id_One={1}
-            paragraph={
-              "Air temperature (AirTC), with its unit being degrees Celsius (°C) is a fundamental meteorological parameter essential for weather forecasting, climate monitoring, and various environmental and agricultural applications. Accurate air temperature readings help in understanding and predicting weather patterns, managing heating and cooling needs, and studying the effects of temperature on ecosystems. This data is typically collected using thermometers or temperature sensors, which provide precise and reliable information about the ambient air temperature."
-            }
-            Ylabel={"Air temperature (°C)"}
-            VariableOne={"Air temperature"}
+            paragraph={localize(language, "AirTemperatureParagraph")}
+            Ylabel={`${localize(language, "AirTemperature")} (°C)`}
+            VariableOne={localize(language, "AirTemperature")}
             mainData={climateData}
-            XCaption={"The chart above shows the air temperature."}
+            XCaption={localize(language, "AirTemperatureXCaption")}
           />
           <Divider />
-          {/* <SensorsLinechartMultiClimate
-        title={"Average Solar Radiation"}
-        attribute_id_One={4}
-        // attribute_id_Two={5}
-        paragraph={
-          "Average Solar Radiation (SlrW) measured in watts per square meter (W/m²). This measurement represents the average solar power received on a horizontal surface per unit area over a specific time interval, typically an hour or a day. It is a critical parameter in understanding the intensity of solar energy available for processes like photosynthesis, solar power generation, and climate studies. By averaging solar radiation over time, it helps in assessing the consistency and fluctuations in solar energy input, which is vital for optimizing the performance of solar panels, planning agricultural activities, and analyzing environmental conditions. This data is typically collected using instruments such as pyranometers, providing insights into the temporal patterns of solar energy."
-        }
-        Ylabel={"Average Solar Radiation (W/m^2)"}
-        VariableOne={"Average Solar Radiation"}
-        // VariableTwo={"SlrW"}
-        mainData={climateData}
-        XCaption={
-          "The chart above shows the Average Solar Radiation daily at 12:00."
-        }
-      />{" "}
-      <Divider />
-       <SensorsLinechartMultiClimate
-        title={"Total Solar Radiation "}
-        attribute_id_One={5}
-        paragraph={`Solar Radiation Total (SlrMJ) is measured in megajoules per square meter (MJ/m²), representing the total solar energy received on a horizontal surface per unit area over a given period, typically a day. This measurement is crucial for understanding solar energy inputs in environmental and agricultural studies, as well as applications related to solar power generation. It helps in analyzing plant growth patterns, crop yields, solar panel efficiency, and climate modeling. Solar radiation is typically measured using pyranometers or silicon photodiode sensors at weather stations, with the data often summarized daily to show variations in solar energy received across different times of the year.`}
-        Ylabel={"Total Solar Radiation (MJ/m^2)"}
-        VariableOne={"Total Solar Radiation"}
-        mainData={climateData}
-        XCaption={
-          "The chart above shows the Total Solar Radiation (SlrMJ) daily at 12:00."
-        }
-      /> */}
           <SensorsLinechartMultiClimateTwoside
-            title={"Solar Radiation"}
+            title={localize(language, "SolarRadiation")}
             attribute_id_One={4}
             attribute_id_Two={5}
-            paragraph={
-              "Solar Radiation Total (SlrMJ), measured in megajoules per square meter (MJ/m²), and Average Solar Radiation (SlrW), measured in watts per square meter (W/m²), are critical for understanding solar energy inputs in various fields such as environmental and agricultural studies and solar power generation. SlrMJ represents the total solar energy received on a horizontal surface per unit area over a given period, typically a day, and is crucial for analyzing plant growth patterns, crop yields, solar panel efficiency, and climate modeling. On the other hand, SlrW represents the average solar power received on a horizontal surface per unit area over a specific time interval, typically an hour or a day, and is vital for understanding the intensity and consistency of solar energy available for processes like photosynthesis and optimizing solar panel performance. Both measurements are typically collected using instruments such as pyranometers or silicon photodiode sensors at weather stations, providing insights into the temporal and spatial variations of solar energy, which are essential for planning agricultural activities, analyzing environmental conditions, and assessing solar energy potential throughout the year."
-            }
-            Ylabel={"Average Solar Radiation (W/m^2)"}
-            YlabelTwo={"Total Solar Radiation (MJ/m^2)"}
-            VariableOne={"Average Solar Radiation"}
-            VariableTwo={"Total Solar Radiation"}
+            paragraph={localize(language, "SolarRadiationParagraph")}
+            Ylabel={`${localize(language, "AverageSolarRadiation")} (W/m^2)`}
+            YlabelTwo={`${localize(language, "TotalSolarRadiation")} (MJ/m^2)`}
+            VariableOne={localize(language, "AverageSolarRadiation")}
+            VariableTwo={localize(language, "TotalSolarRadiation")}
             climateData={climateData}
-            XCaption={
-              "The chart above shows the solar radiation (average and total) daily at 12:00."
-            }
+            XCaption={localize(language, "SolarRadiationXCaption")}
           />
         </Box>
       )}
@@ -249,90 +206,74 @@ const Sensors = () => {
             variant="body1"
             sx={{ px: 2, color: "darkslateblue", fontWeight: "bold" }}
           >
-            No data is available for this station at the moment.
+            {localize(language, "StationNoData")}
           </Typography>
         </Box>
       )}
       {stationId === 7 && (
         <Box sx={{ mt: 5 }}>
           <SensorsLinechartMulti
-            title={"Soil temperature"}
+            title={localize(language, "SoilTemperature")}
             attribute_id_One={53}
             attribute_id_Two={54}
             attribute_id_Three={55}
             attribute_id_Four={56}
             paragraph={localize(language, "soilDifferentDeep")}
-            Ylabel={"Soil temperature (°C)"}
+            Ylabel={`${localize(language, "SoilTemperature")} (°C)`}
             VariableOne={"10 cm"}
             VariableTwo={"25 cm"}
             VariableThree={"55 cm"}
             VariableFour={"110 cm"}
             mainData={soilData}
-            XCaption={
-              "The chart above shows soil temperature daily at 12:00 at different depths."
-            }
+            XCaption={localize(language, "SoilTemperatureXCaption")}
           />
           <Divider />
           <SensorsLinechartMulti
-            title={"Capillary potential"}
+            title={localize(language, "CapillaryPotential")}
             attribute_id_One={57}
             attribute_id_Two={58}
             attribute_id_Three={59}
             attribute_id_Four={60}
-            paragraph={`Capillary potential, also known as capillary action or soil water potential, refers to the ability of water to move through small spaces in porous materials, such as soil or plant roots, due to adhesive and cohesive forces. It is a critical concept in understanding how water is held and moves within the soil-plant-atmosphere continuum. Capillary potential plays a significant role in soil moisture dynamics, affecting plant growth and the availability of water to roots. In forestry, the distribution of vegetation across landscapes is influenced by capillary potential, which varies depending on the root systems of different plants and the soil's capillary properties. Monitoring and managing capillary potential are essential for assessing soil fertility, optimizing irrigation practices, and mitigating the impacts of drought on forest ecosystems. Understanding these dynamics is crucial for sustainable forestry practices and maintaining the health and productivity of forested areas.              `}
-            Ylabel={"Capillary potential (pF)"}
+            paragraph={localize(language, "CapillaryPotentialParagraph")}
+            Ylabel={`${localize(language, "CapillaryPotential")} (pF)`}
             VariableOne={"10 cm"}
             VariableTwo={"25 cm"}
             VariableThree={"55 cm"}
             VariableFour={"110 cm"}
             mainData={soilData}
-            XCaption={
-              "The chart above shows capillary potential (pF) daily at 12:00 at different depths."
-            }
+            XCaption={localize(language, "CapillaryPotentialXCaption")}
           />
           <Divider />
           <SensorsLinechartMultiClimate
-            title={"Air humidity"}
+            title={localize(language, "AirHumidity")}
             attribute_id_One={11}
             attribute_id_Two={12}
-            paragraph={
-              "Air humidity refers to the amount of water vapor present in the atmosphere, playing a critical role in weather patterns, and the overall climate system. High humidity levels can make temperatures feel warmer than they actually are, while low humidity can lead to dryness and discomfort. In forestry, humidity is particularly important as it affects tree growth, forest health, and the prevalence of pests and diseases. Trees and other vegetation transpire water, which increases local humidity levels and can influence microclimates within forests. This interplay between air humidity and forest ecosystems underscores the importance of monitoring humidity levels for sustainable forest management and understanding environmental changes."
-            }
-            Ylabel={"Air humidity (%rF)"}
-            VariableOne={"Air humidity (200 cm)"}
-            VariableTwo={"Air humidity (10 cm)"}
+            paragraph={localize(language, "AirHumidityParagraph")}
+            Ylabel={`${localize(language, "AirHumidity")} (%rF)`}
+            VariableOne={`${localize(language, "AirHumidity")} (200 cm)`}
+            VariableTwo={`${localize(language, "AirHumidity")} (10 cm)`}
             mainData={climateData}
-            XCaption={
-              "The chart above shows the air humidity (%rF) at two different depths (200 and 10 cm) daily at 12:00 for Buche station."
-            }
+            XCaption={localize(language, "AirHumidityXCaption")}
           />{" "}
           <Divider />
           <SensorsLinechartMultiClimate
-            title={"Rainfall"}
+            title={localize(language, "Rainfall")}
             attribute_id_One={13}
-            paragraph={
-              "Rainfall represents a pivotal element within the hydrological cycle, whereby precipitation replenishes freshwater resources and sustains a diverse array of ecosystems. The occurrence of rainfall is subject to a number of influences, including the geographic location of the area in question, the prevailing atmospheric conditions, and the fluctuations that occur throughout the year. In the context of forestry, rainfall is of paramount importance, as it provides the essential moisture for tree growth and sustains the health of forest ecosystems. Adequate rainfall is essential for soil hydration, nutrient cycling, and the overall productivity of forests. However, variations in rainfall, such as droughts or excessive precipitation, can significantly impact forest health, affecting tree growth, increasing the risk of wildfires, or causing flooding and soil erosion. Therefore, understanding rainfall patterns is crucial for managing water resources, planning agricultural activities, and predicting environmental changes in forested regions."
-            }
-            Ylabel={"Rainfall (mm)"}
-            VariableOne={"Rainfall (100 cm)"}
+            paragraph={localize(language, "RainfallParagraph")}
+            Ylabel={`${localize(language, "Rainfall")} (mm)`}
+            VariableOne={`${localize(language, "Rainfall")} (100 cm)`}
             mainData={climateData}
-            XCaption={
-              "The chart above shows the rainfall (mm) at 100 cm daily at 12:00 for Buche station."
-            }
+            XCaption={localize(language, "RainfallXCaption")}
           />{" "}
           <Divider />
           <SensorsLinechartMultiClimate
-            title={"Wind speed"}
+            title={localize(language, "WindSpeed")}
             attribute_id_One={14}
-            paragraph={
-              "The speed of wind has a significant impact on weather patterns, climate, and environmental processes. In the context of forestry, wind speed is of paramount importance, as it exerts a profound influence on tree growth, forest structure, and the distribution of seeds and pollen. High wind speeds can cause physical damage to trees, leading to broken branches or uprooting, which can alter forest landscapes and increase the risk of wildfires by spreading flames and embers. Additionally, wind speed influences the rate of evaporation and transpiration, impacting soil moisture and humidity levels within forest ecosystems. An understanding of wind speed patterns is therefore beneficial for forest management, the prediction of storm impacts, and the planning of sustainable forestry practices."
-            }
-            Ylabel={"Wind speed (m/s)"}
-            VariableOne={"Wind speed (200cm)"}
+            paragraph={localize(language, "WindSpeedParagraph")}
+            Ylabel={`${localize(language, "WindSpeed")} (m/s)`}
+            VariableOne={`${localize(language, "WindSpeed")} (200 cm)`}
             mainData={climateData}
-            XCaption={
-              "The chart above shows the wind speed (m/s) at 200 cm daily at 12:00 for Buche station."
-            }
+            XCaption={localize(language, "WindSpeedXCaption")}
           />{" "}
           <Divider />
           {/* <Typography

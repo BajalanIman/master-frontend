@@ -1,3 +1,5 @@
+import AirPollutionForecast from "../pages/openweather/airPolution/AirPollutionForecast";
+
 export default {
   icon: "en",
   by: "By",
@@ -110,4 +112,65 @@ export default {
     "Measuring water content within forest ecosystems is crucial for comprehending the intricate hydrological dynamics vital to their health and sustainability. Water content serves as a fundamental indicator of soil moisture levels, profoundly influencing various ecological processes essential for the functioning of forest ecosystems. By quantifying water content, researchers gain valuable insights into the availability and distribution of water within the soil profile at different depths. This knowledge is instrumental in understanding plant water uptake, transpiration rates, and overall ecosystem productivity. Additionally, water content measurements provide critical information about the resilience of forests to drought conditions, as well as their capacity to support diverse flora and fauna. Moreover, fluctuations in water content influence soil structure, nutrient availability, and microbial activity, shaping the overall ecosystem health and resilience to environmental stressors. By monitoring water content in forest ecosystems, scientists can develop informed management strategies aimed at conserving water resources, enhancing ecosystem resilience, and mitigating the impacts of climate change on these invaluable natural habitats.",
   PanoramaDescription:
     "This is a panorama. By clicking, you can view a 360° overview.",
+  dataDownloadWelcome: "Welcome to the data downloader page",
+  downloadVariables:
+    "Please select your station and download your chosen variables.",
+  Year: "Year",
+  Month: "Month",
+  SelectData: "Select Data",
+  AllMonths: "All months",
+  SelectYear: "Select Year",
+  SoilTemperature: "Soil temperature",
+  SoilTemperatureXCaption:
+    "The chart above shows soil temperature at different depths.",
+  SensorsPage:
+    " On this page, only a selection of the variables collected from the station is shown. For more detailed information about additional variables and data points collected by the station, please contact the administrator. They can provide comprehensive insights and access to the full dataset.",
+  WaterContent: "Water content",
+  WaterContentXCaption:
+    "The chart above shows water content at different depths.",
+  Permittivity: "Permittivity",
+  PermittivityParagraph:
+    "Permittivity in soil, also known as the dielectric constant, is a measure of how much the soil can store electrical energy in an electric field, reflecting its ability to transmit an electric field. This property is crucial in fields such as agriculture, hydrology, and environmental science, as it affects soil moisture content measurements and soil behavior under electrical fields. Defined as a material property indicating how an electric field affects and is affected by a dielectric medium, soil permittivity refers to the soil's ability to hold and transmit electrical charges. Typically measured using dielectric sensors, which send an electrical signal through the soil and measure the response, this measurement can estimate soil moisture content since water has a high permittivity compared to dry soil components. Water significantly increases soil permittivity because polar water molecules align with the electric field, making permittivity a proxy for soil moisture content. Applications include optimizing irrigation practices in agriculture, understanding soil properties for construction and land management in geotechnical engineering, and studying water movement and soil health in environmental science. Factors such as soil type, density, temperature, and salinity influence soil permittivity, making it a valuable parameter for improving irrigation efficiency, managing water resources, and studying environmental changes.",
+  PermittivityXCaption:
+    "The chart above shows the permittivity at different depths.",
+  AirTemperature: "Air temperature",
+  AirTemperatureParagraph:
+    "Air temperature (AirTC), with its unit being degrees Celsius (°C) is a fundamental meteorological parameter essential for weather forecasting, climate monitoring, and various environmental and agricultural applications. Accurate air temperature readings help in understanding and predicting weather patterns, managing heating and cooling needs, and studying the effects of temperature on ecosystems. This data is typically collected using thermometers or temperature sensors, which provide precise and reliable information about the ambient air temperature.",
+  AirTemperatureXCaption: "The chart above shows the air temperature.",
+  SolarRadiation: "Solar Radiation",
+  SolarRadiationParagraph:
+    "Solar Radiation Total (SlrMJ), measured in megajoules per square meter (MJ/m²), and Average Solar Radiation (SlrW), measured in watts per square meter (W/m²), are critical for understanding solar energy inputs in various fields such as environmental and agricultural studies and solar power generation. SlrMJ represents the total solar energy received on a horizontal surface per unit area over a given period, typically a day, and is crucial for analyzing plant growth patterns, crop yields, solar panel efficiency, and climate modeling. On the other hand, SlrW represents the average solar power received on a horizontal surface per unit area over a specific time interval, typically an hour or a day, and is vital for understanding the intensity and consistency of solar energy available for processes like photosynthesis and optimizing solar panel performance. Both measurements are typically collected using instruments such as pyranometers or silicon photodiode sensors at weather stations, providing insights into the temporal and spatial variations of solar energy, which are essential for planning agricultural activities, analyzing environmental conditions, and assessing solar energy potential throughout the year.",
+  AverageSolarRadiation: "Average Solar Radiation",
+  TotalSolarRadiation: "Total Solar Radiation",
+  SolarRadiationXCaption:
+    "The chart above shows the solar radiation (average and total) daily at 12:00.",
+  StationNoData: " No data is available for this station at the moment.",
+  CapillaryPotential: "Capillary potential",
+  CapillaryPotentialParagraph:
+    "Capillary potential, also known as capillary action or soil water potential, refers to the ability of water to move through small spaces in porous materials, such as soil or plant roots, due to adhesive and cohesive forces. It is a critical concept in understanding how water is held and moves within the soil-plant-atmosphere continuum. Capillary potential plays a significant role in soil moisture dynamics, affecting plant growth and the availability of water to roots. In forestry, the distribution of vegetation across landscapes is influenced by capillary potential, which varies depending on the root systems of different plants and the soil's capillary properties. Monitoring and managing capillary potential are essential for assessing soil fertility, optimizing irrigation practices, and mitigating the impacts of drought on forest ecosystems. Understanding these dynamics is crucial for sustainable forestry practices and maintaining the health and productivity of forested areas.",
+  CapillaryPotentialXCaption:
+    "The chart above shows capillary potential (pF) daily at 12:00 at different depths.",
+  AirHumidity: "Air humidity",
+  AirHumidityParagraph:
+    "Air humidity refers to the amount of water vapor present in the atmosphere, playing a critical role in weather patterns, and the overall climate system. High humidity levels can make temperatures feel warmer than they actually are, while low humidity can lead to dryness and discomfort. In forestry, humidity is particularly important as it affects tree growth, forest health, and the prevalence of pests and diseases. Trees and other vegetation transpire water, which increases local humidity levels and can influence microclimates within forests. This interplay between air humidity and forest ecosystems underscores the importance of monitoring humidity levels for sustainable forest management and understanding environmental changes.",
+  AirHumidityXCaption:
+    "The chart above shows the air humidity (%rF) at two different depths (200 and 10 cm) daily at 12:00 for Buche station.",
+  Rainfall: "Rainfall",
+  RainfallParagraph:
+    "Rainfall represents a pivotal element within the hydrological cycle, whereby precipitation replenishes freshwater resources and sustains a diverse array of ecosystems. The occurrence of rainfall is subject to a number of influences, including the geographic location of the area in question, the prevailing atmospheric conditions, and the fluctuations that occur throughout the year. In the context of forestry, rainfall is of paramount importance, as it provides the essential moisture for tree growth and sustains the health of forest ecosystems. Adequate rainfall is essential for soil hydration, nutrient cycling, and the overall productivity of forests. However, variations in rainfall, such as droughts or excessive precipitation, can significantly impact forest health, affecting tree growth, increasing the risk of wildfires, or causing flooding and soil erosion. Therefore, understanding rainfall patterns is crucial for managing water resources, planning agricultural activities, and predicting environmental changes in forested regions.",
+  RainfallXCaption:
+    "The chart above shows the rainfall (mm) at 100 cm daily at 12:00 for Buche station.",
+  WindSpeed: "Wind speed",
+  WindSpeedParagraph:
+    "The speed of wind has a significant impact on weather patterns, climate, and environmental processes. In the context of forestry, wind speed is of paramount importance, as it exerts a profound influence on tree growth, forest structure, and the distribution of seeds and pollen. High wind speeds can cause physical damage to trees, leading to broken branches or uprooting, which can alter forest landscapes and increase the risk of wildfires by spreading flames and embers. Additionally, wind speed influences the rate of evaporation and transpiration, impacting soil moisture and humidity levels within forest ecosystems. An understanding of wind speed patterns is therefore beneficial for forest management, the prediction of storm impacts, and the planning of sustainable forestry practices.",
+  WindSpeedXCaption:
+    "The chart above shows the wind speed (m/s) at 200 cm daily at 12:00 for Buche station.",
+  AirPollutionCaption:
+    "The table below shows the current amounts of polluting gases in ",
+  Temperature: "Temperature",
+  Humidity: "Humidity",
+  Hour: "Hour",
+  DataLoading: "Loading datasets. Please wait!",
+  DownloadData: "Download Data",
+  PhotoGallery: "Photo gallery",
 };

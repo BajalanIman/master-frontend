@@ -111,4 +111,66 @@ export default {
     "La mesure de la teneur en eau des écosystèmes forestiers est cruciale pour comprendre la dynamique hydrologique complexe, essentielle à leur santé et à leur durabilité. La teneur en eau constitue un indicateur fondamental des niveaux d’humidité du sol, influençant profondément divers processus écologiques essentiels au fonctionnement des écosystèmes forestiers. En quantifiant la teneur en eau, les chercheurs obtiennent des informations précieuses sur la disponibilité et la répartition de l'eau dans le profil du sol à différentes profondeurs. Ces connaissances sont essentielles à la compréhension de l’absorption d’eau par les plantes, des taux de transpiration et de la productivité globale de l’écosystème. De plus, les mesures de la teneur en eau fournissent des informations essentielles sur la résilience des forêts aux conditions de sécheresse, ainsi que sur leur capacité à abriter une flore et une faune diversifiées. De plus, les fluctuations de la teneur en eau influencent la structure du sol, la disponibilité des nutriments et l’activité microbienne, façonnant ainsi la santé globale de l’écosystème et sa résilience aux facteurs de stress environnementaux. En surveillant la teneur en eau des écosystèmes forestiers, les scientifiques peuvent élaborer des stratégies de gestion éclairées visant à conserver les ressources en eau, à améliorer la résilience des écosystèmes et à atténuer les impacts du changement climatique sur ces habitats naturels inestimables.",
   PanoramaDescription:
     "C'est un panorama. En cliquant, vous pouvez visualiser un aperçu à 360°.",
+  dataDownloadWelcome: "Bienvenue sur la page de téléchargement de données",
+  downloadVariables:
+    "Veuillez sélectionner votre station et télécharger les variables choisies.",
+  Year: "Année",
+  Month: "Mois",
+  SelectData: "Sélectionner les données",
+  AllMonths: "Tous les mois",
+  SelectYear: "Select Year",
+  SoilTemperature: "Température du sol",
+  SoilTemperatureXCaption:
+    "Le graphique ci-dessus montre la température du sol à différentes profondeurs.",
+  SensorsPage:
+    "Sur cette page, seule une sélection des variables collectées par la station est affichée. Pour des informations plus détaillées sur les variables et les points de données supplémentaires collectés par la station, veuillez contacter l'administrateur. Il peut vous fournir des informations complètes et un accès à l'ensemble des données.",
+  WaterContent: "Teneur en eau",
+  WaterContentXCaption:
+    "Le tableau ci-dessus montre la teneur en eau à différentes profondeurs.",
+  Permittivity: "Permittivité",
+  PermittivityParagraph:
+    "La permittivité du sol, également connue sous le nom de constante diélectrique, est une mesure de la quantité d'énergie électrique que le sol peut stocker dans un champ électrique, reflétant sa capacité à transmettre un champ électrique. Cette propriété est cruciale dans des domaines tels que l'agriculture, l'hydrologie et les sciences de l'environnement, car elle affecte les mesures de la teneur en humidité du sol et le comportement du sol sous des champs électriques. Définie comme une propriété matérielle indiquant comment un champ électrique affecte et est affecté par un milieu diélectrique, la permittivité du sol fait référence à la capacité du sol à retenir et à transmettre des charges électriques. Généralement mesurée à l'aide de capteurs diélectriques, qui envoient un signal électrique à travers le sol et mesurent la réponse, cette mesure peut estimer la teneur en humidité du sol puisque l'eau a une permittivité élevée par rapport aux composants secs du sol. L'eau augmente considérablement la permittivité du sol car les molécules d'eau polaires s'alignent sur le champ électrique, ce qui fait de la permittivité un indicateur de la teneur en humidité du sol. Les applications comprennent l'optimisation des pratiques d'irrigation en agriculture, la compréhension des propriétés du sol pour la construction et la gestion des terres en génie géotechnique, et l'étude du mouvement de l'eau et de la santé du sol en sciences de l'environnement. Des facteurs tels que le type de sol, la densité, la température et la salinité influencent la permittivité du sol, ce qui en fait un paramètre précieux pour améliorer l’efficacité de l’irrigation, gérer les ressources en eau et étudier les changements environnementaux.",
+  PermittivityXCaption:
+    "Le graphique ci-dessus montre la permittivité à différentes profondeurs.",
+  AirTemperature: "Température de l'air",
+  AirTemperatureParagraph:
+    "La température de l'air (AirTC), dont l'unité est le degré Celsius (°C), est un paramètre météorologique fondamental essentiel pour les prévisions météorologiques, la surveillance du climat et diverses applications environnementales et agricoles. Des relevés précis de la température de l'air aident à comprendre et à prévoir les conditions météorologiques, à gérer les besoins de chauffage et de refroidissement et à étudier les effets de la température sur les écosystèmes. Ces données sont généralement collectées à l'aide de thermomètres ou de capteurs de température, qui fournissent des informations précises et fiables sur la température de l'air ambiant.",
+  AirTemperatureXCaption:
+    "Le graphique ci-dessus montre la température de l'air.",
+  SolarRadiation:
+    "Le rayonnement solaire total (SlrMJ), mesuré en mégajoules par mètre carré (MJ/m²), et le rayonnement solaire moyen (SlrW), mesuré en watts par mètre carré (W/m²), sont essentiels pour comprendre les apports d'énergie solaire dans divers domaines tels que les études environnementales et agricoles et la production d'énergie solaire. SlrMJ représente l'énergie solaire totale reçue sur une surface horizontale par unité de surface sur une période donnée, généralement une journée, et est crucial pour analyser les schémas de croissance des plantes, les rendements des cultures, l'efficacité des panneaux solaires et la modélisation du climat. D'autre part, SlrW représente la puissance solaire moyenne reçue sur une surface horizontale par unité de surface sur un intervalle de temps spécifique, généralement une heure ou une journée, et est essentielle pour comprendre l'intensité et la cohérence de l'énergie solaire disponible pour des processus comme la photosynthèse et l'optimisation des performances des panneaux solaires. Les deux mesures sont généralement collectées à l'aide d'instruments tels que des pyranomètres ou des capteurs à photodiode au silicium dans les stations météorologiques, fournissant des informations sur les variations temporelles et spatiales de l'énergie solaire, qui sont essentielles pour planifier les activités agricoles, analyser les conditions environnementales et évaluer le potentiel d'énergie solaire tout au long de l'année.",
+  AverageSolarRadiation: "Rayonnement solaire moyen",
+  TotalSolarRadiation: "Rayonnement solaire total",
+  SolarRadiationXCaption:
+    "Le graphique ci-dessus montre le rayonnement solaire (moyen et total) quotidien à 12h00.",
+  StationNoData:
+    "Aucune donnée n'est disponible pour cette station pour le moment.",
+  CapillaryPotential: "Potentiel capillaire",
+  CapillaryPotentialParagraph:
+    "Le potentiel capillaire, également appelé action capillaire ou potentiel hydrique du sol, fait référence à la capacité de l'eau à se déplacer dans de petits espaces dans des matériaux poreux, tels que le sol ou les racines des plantes, en raison de forces adhésives et cohésives. Il s'agit d'un concept essentiel pour comprendre comment l'eau est retenue et se déplace dans le continuum sol-plante-atmosphère. Le potentiel capillaire joue un rôle important dans la dynamique de l'humidité du sol, affectant la croissance des plantes et la disponibilité de l'eau pour les racines. En foresterie, la répartition de la végétation dans les paysages est influencée par le potentiel capillaire, qui varie en fonction des systèmes racinaires des différentes plantes et des propriétés capillaires du sol. La surveillance et la gestion du potentiel capillaire sont essentielles pour évaluer la fertilité des sols, optimiser les pratiques d'irrigation et atténuer les impacts de la sécheresse sur les écosystèmes forestiers. La compréhension de cette dynamique est essentielle pour des pratiques forestières durables et maintenir la santé et la productivité des zones forestières.",
+  CapillaryPotentialXCaption:
+    "Le graphique ci-dessus montre le potentiel capillaire (oF) quotidien à 12h00 à différentes profondeurs.",
+  AirHumidity: "Humidité de l'air",
+  AirHumidityParagraph:
+    "L’humidité de l’air fait référence à la quantité de vapeur d’eau présente dans l’atmosphère, jouant un rôle essentiel dans les conditions météorologiques et le système climatique global. Des niveaux d’humidité élevés peuvent donner l’impression que les températures sont plus chaudes qu’elles ne le sont en réalité, tandis qu’une faible humidité peut entraîner une sécheresse et un inconfort. En foresterie, l’humidité est particulièrement importante car elle affecte la croissance des arbres, la santé des forêts et la prévalence des ravageurs et des maladies. Les arbres et autres végétaux transpirent de l’eau, ce qui augmente les niveaux d’humidité locaux et peut influencer les microclimats au sein des forêts. Cette interaction entre l’humidité de l’air et les écosystèmes forestiers souligne l’importance de surveiller les niveaux d’humidité pour une gestion durable des forêts et une compréhension des changements environnementaux.",
+  AirHumidityXCaption:
+    "Le graphique ci-dessus montre l'humidité de l'air (%rF) à deux profondeurs différentes (200 et 10 cm) quotidiennement à 12h00 pour la station de Buche.",
+  Rainfall: "Précipitations",
+  RainfallParagraph:
+    "Les précipitations constituent un élément essentiel du cycle hydrologique, dans lequel elles réapprovisionnent les ressources en eau douce et soutiennent un large éventail d’écosystèmes. La survenue des précipitations est soumise à un certain nombre d’influences, notamment la situation géographique de la zone concernée, les conditions atmosphériques dominantes et les fluctuations qui se produisent tout au long de l’année. Dans le contexte de la foresterie, les précipitations sont d’une importance capitale, car elles fournissent l’humidité essentielle à la croissance des arbres et maintiennent la santé des écosystèmes forestiers. Des précipitations adéquates sont essentielles à l’hydratation des sols, au cycle des nutriments et à la productivité globale des forêts. Cependant, les variations des précipitations, telles que les sécheresses ou les précipitations excessives, peuvent avoir un impact significatif sur la santé des forêts, affectant la croissance des arbres, augmentant le risque d’incendies de forêt ou provoquant des inondations et l’érosion des sols. Par conséquent, il est essentiel de comprendre les schémas de précipitations pour gérer les ressources en eau, planifier les activités agricoles et prévoir les changements environnementaux dans les régions forestières.",
+  RainfallXCaption:
+    "Le graphique ci-dessus montre les précipitations (mm) à 100 cm quotidiennement à 12h00 pour la station de Buche.",
+  WindSpeed: "Vitesse du vent",
+  WindSpeedParagraph:
+    "La vitesse du vent a un impact significatif sur les conditions météorologiques, le climat et les processus environnementaux. Dans le contexte de la foresterie, la vitesse du vent est d’une importance capitale, car elle exerce une profonde influence sur la croissance des arbres, la structure de la forêt et la distribution des graines et du pollen. Des vents forts peuvent endommager physiquement les arbres, entraînant la rupture ou le déracinement de branches, ce qui peut altérer les paysages forestiers et augmenter le risque d’incendies de forêt en propageant les flammes et les braises. De plus, la vitesse du vent influence le taux d’évaporation et de transpiration, ce qui a un impact sur l’humidité du sol et les niveaux d’humidité dans les écosystèmes forestiers. Une compréhension des schémas de vitesse du vent est donc bénéfique pour la gestion forestière, la prévision des impacts des tempêtes et la planification de pratiques forestières durables.",
+  WindSpeedXCaption:
+    "Le graphique ci-dessus montre la vitesse du vent (m/s) à 200 cm quotidiennement à 12h00 pour la station de Buche.",
+  AirPollutionCaption:
+    "Le tableau ci-dessous montre les quantités actuelles de gaz polluants dans ",
+  Temperature: "Température",
+  Humidity: "Humidité",
+  Hour: "Heure",
+  DataLoading: "Chargement des jeux de données. Veuillez patienter !",
+  DownloadData: "Télécharger les données",
+  PhotoGallery: "Galerie de photos",
 };

@@ -100,8 +100,8 @@ const WeatherForecast = () => {
       <Linechart
         days={date}
         newData={allData.map((el) => el.temp)}
-        componentName={"Temperature (°C)"}
-        fullName={"Temperature"}
+        componentName={`${localize(language, "Temperature")} (°C)`}
+        fullName={localize(language, "Temperature")}
       />
       <Typography
         variant="body1"
@@ -116,8 +116,8 @@ const WeatherForecast = () => {
       <Linechart
         days={date}
         newData={allData.map((el) => el.humidity)}
-        componentName={"Humidity (%)"}
-        fullName={"Humidity"}
+        componentName={`${localize(language, "Humidity")} (%)`}
+        fullName={localize(language, "Humidity")}
       />
       <Typography
         variant="body1"
@@ -148,8 +148,8 @@ const WeatherForecast = () => {
       <Linechart
         days={date}
         newData={windSpeed.map((el) => el.speed)}
-        componentName={"Wind speed (m/s)"}
-        fullName={"Wind speed"}
+        componentName={`${localize(language, "Wind speed")} (m/s)`}
+        fullName={localize(language, "WindSpeed")}
       />
     </div>
   );

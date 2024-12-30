@@ -26,7 +26,6 @@ const LoadingData = () => {
       <Typography variant="h6">Loading ...</Typography>
 
       <div style={{ position: "relative", width: 100, height: 100 }}>
-        {/* Gray CircularProgress background */}
         <CircularProgress
           size={100}
           thickness={8}
@@ -34,7 +33,6 @@ const LoadingData = () => {
           value={100}
           style={{ color: "gray", borderRadius: "100%" }}
         />
-        {/* Green CircularProgress for progress */}
         <CircularProgress
           size={100}
           thickness={8}

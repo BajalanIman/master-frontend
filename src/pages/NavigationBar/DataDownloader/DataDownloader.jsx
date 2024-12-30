@@ -1,13 +1,20 @@
-import React from "react";
+import React, { useContext } from "react";
 import styles from "./DataDownloader.module.css";
 import StationsData from "./Stations/StationsData";
 import { Divider } from "@mui/material";
 
+import { CartContext } from "../../../App.jsx";
+import { localize } from "../../../Translation.jsx";
+
 const DataDownloader = () => {
+  let { language } = useContext(CartContext);
+
   return (
     <div className={styles.download_page}>
       <div className={styles.download_container}>
-        <h5 className={styles.titles}>Welcome to the data downloader page</h5>
+        <h5 className={styles.titles}>
+          {localize(language, "dataDownloadWelcome")}
+        </h5>
         <StationsData
           variable={"Soil"}
           endPoint={"soil_measurements"}
@@ -20,6 +27,7 @@ const DataDownloader = () => {
           sx={{
             bgcolor: "darkGray",
             width: "300px",
+            bgcolor: "blue",
             mt: 5,
           }}
         />

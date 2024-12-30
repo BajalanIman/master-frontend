@@ -1,10 +1,15 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import TableCurrentAirPollution from "./TableCurrentAirPollution";
 import PopupMap from "./PopupMap";
 import { Box, Button, Typography } from "@mui/material";
 
+import { localize } from "../../../Translation.jsx";
+import { CartContext } from "../../../App.jsx";
+
 const AirPollutionToDatabase = ({ stlocation, stName, customWidth }) => {
+  const { language } = useContext(CartContext);
+
   const lat = stlocation ? stlocation[0] : 52.52;
   const lon = stlocation ? stlocation[1] : 13.405;
 
@@ -64,8 +69,7 @@ const AirPollutionToDatabase = ({ stlocation, stName, customWidth }) => {
               textAlign: "justify",
             }}
           >
-            The table below shows the current amounts of polluting gases in{" "}
-            {stName}.
+            {localize(language, "AirPollutionCaption")} {stName}.
           </Typography>
           <Button onClick={handleClickOpen}>
             ({openWeaterLat},{openWeaterLon}).
@@ -74,7 +78,7 @@ const AirPollutionToDatabase = ({ stlocation, stName, customWidth }) => {
       </Box>
       <TableCurrentAirPollution openWeaterAll={openWeaterAll} />
       <Typography variant="h6" sx={{ fontSize: "12px" }}>
-        All the data shown on this page comes from the OpenWeatherMap API.
+        {localize(language, "AirPollutionCaption")}
       </Typography>
       <PopupMap
         open={open}

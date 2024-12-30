@@ -1,12 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Box from "@mui/material/Box";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import Button from "@mui/material/Button";
+import CircularProgress from "@mui/material/CircularProgress";
 import axios from "axios";
 import { BASE_URL } from "../../../../constants/constants";
+import { CartContext } from "../../../../App.jsx";
+import { localize } from "../../../../Translation.jsx";
 
 const StationsData = ({
   variable,
@@ -23,55 +26,42 @@ const StationsData = ({
   const [filteredData, setFilteredData] = useState([]);
   const [uniqueYears, setUniqueYears] = useState([]);
   const [uniqueMonths, setUniqueMonths] = useState([]);
+  const [uniqueStations, setUniqueStations] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-  // Fetch data from API
+  const { language } = useContext(CartContext);
+
   useEffect(() => {
     const fetchData = async () => {
       try {
+        setLoading(true);
         const response = await axios.get(`${BASE_URL}${endPoint}`);
         setStationInformation(response.data);
-        // Extract unique years and months
+        // Extract unique years, months, and stations
         const years = new Set();
         const months = new Set();
+        const stations = new Set();
         response.data.forEach((el) => {
           const [year, month] = el.date_time.split("-");
           years.add(year);
           months.add(month);
+          if (el.station?.station_name) {
+            stations.add(el.station.station_name);
+          }
         });
+
         setUniqueYears([...years].sort());
         setUniqueMonths([...months].sort((a, b) => parseInt(a) - parseInt(b)));
+        setUniqueStations([...stations]);
       } catch (error) {
         console.error("Error fetching data:", error);
+      } finally {
+        setLoading(false);
       }
     };
 
     fetchData();
-  }, []);
-
-  // Update months dynamically when selectedYears changes
-  useEffect(() => {
-    if (selectedYears.length > 0) {
-      // Filter months based on selected year(s)
-      const filteredMonths = new Set();
-      stationInformation.forEach((el) => {
-        const [year, month] = el.date_time.split("-");
-        if (selectedYears.includes(year)) {
-          filteredMonths.add(month);
-        }
-      });
-      setUniqueMonths(
-        [...filteredMonths].sort((a, b) => parseInt(a) - parseInt(b))
-      );
-    } else {
-      // If no year is selected, show all months
-      const allMonths = new Set();
-      stationInformation.forEach((el) => {
-        const [, month] = el.date_time.split("-");
-        allMonths.add(month);
-      });
-      setUniqueMonths([...allMonths].sort((a, b) => parseInt(a) - parseInt(b)));
-    }
-  }, [selectedYears, stationInformation]);
+  }, [endPoint]);
 
   const handleStationChange = (event) => {
     setSelectedStation(event.target.value);
@@ -79,7 +69,7 @@ const StationsData = ({
 
   const handleYearChange = (event) => {
     setSelectedYears(event.target.value);
-    setSelectedMonths([]); // Reset months when year selection changes
+    setSelectedMonths([]);
   };
 
   const handleMonthChange = (event) => {
@@ -90,7 +80,6 @@ const StationsData = ({
     const filtered = stationInformation.filter((el) => {
       const [year, month] = el.date_time.split("-");
 
-      // Filter conditions
       const matchesStation =
         !selectedStation || el.station?.station_name === selectedStation;
 
@@ -107,8 +96,7 @@ const StationsData = ({
   };
 
   const downloadCSV = () => {
-    console.log(filteredData);
-    const csvHeader = ` Station Name,Date Time,${attributeId},${attributeName},Unit,Value\n`;
+    const csvHeader = `Station Name,Date Time,${attributeId},${attributeName},Unit,Value\n`;
     const csvRows = filteredData.map(
       (row) =>
         `${row.station.station_name},${row.date_time},${row[attributeId]},${row[attribute][attributeName]},${row[attribute][attributeUnit]},${row.value}`
@@ -119,109 +107,117 @@ const StationsData = ({
     const url = URL.createObjectURL(blob);
     const link = document.createElement("a");
     link.href = url;
-    link.download = `filtered_${variable}_data.csv`;
+    link.download = `filtered_${variable}_${selectedStation}_data.csv`;
     link.click();
     URL.revokeObjectURL(url);
+    window.location.reload();
   };
 
-  const uniqueStations = Array.from(
-    new Set(
-      stationInformation
-        .map((el) => el.station?.station_name)
-        .filter((name) => name)
-    )
-  );
-
   return (
-    <Box
-      sx={{
-        margin: "0px",
-        mt: 4,
-        width: "350px",
-        boxShadow: "1px 1px 1px 1px gray",
-        padding: "10px",
-        borderRadius: "5px",
-      }}
-    >
-      <h4 className="mb-4 font-bold">{variable} variables</h4>
-      <p className="mb-4">
-        Please select your station and download your chosen {variable} variables
-      </p>
-
-      {/* Station Selection */}
-      <FormControl fullWidth sx={{ mb: 2 }}>
-        <InputLabel id="station-label">Station</InputLabel>
-        <Select
-          labelId="station-label"
-          value={selectedStation}
-          onChange={handleStationChange}
+    <>
+      {loading ? (
+        <div className="h-56 flex flex-col justify-center items-center gap-4">
+          <p>{localize(language, "DataLoading")}</p>
+          <CircularProgress size={24} sx={{ mt: 2 }} />
+        </div>
+      ) : (
+        <Box
+          sx={{
+            margin: "0px",
+            mt: 4,
+            width: "350px",
+            boxShadow: "1px 1px 1px 1px gray",
+            padding: "10px",
+            borderRadius: "5px",
+            border: "1px solid gray",
+          }}
         >
-          {uniqueStations.map((name, index) => (
-            <MenuItem key={index} value={name}>
-              {name}
-            </MenuItem>
-          ))}
-        </Select>
-      </FormControl>
+          <h4 className="mb-4 font-bold">{variable} variables</h4>
+          <p className="mb-4">{localize(language, "downloadVariables")}</p>
 
-      {/* Year Selection (Multiple) */}
-      <FormControl fullWidth sx={{ mb: 2 }}>
-        <InputLabel id="year-label">Year</InputLabel>
-        <Select
-          labelId="year-label"
-          multiple
-          value={selectedYears}
-          onChange={handleYearChange}
-          renderValue={(selected) => selected.join(", ")}
-        >
-          {uniqueYears.map((yearOption, index) => (
-            <MenuItem key={index} value={yearOption}>
-              {yearOption}
-            </MenuItem>
-          ))}
-        </Select>
-      </FormControl>
+          {/* Station Selection */}
+          <FormControl fullWidth sx={{ mb: 2 }}>
+            <InputLabel id="station-label">
+              {localize(language, "Station")}
+            </InputLabel>
 
-      {/* Month Selection (Multiple) */}
-      <FormControl fullWidth sx={{ mb: 2 }}>
-        <InputLabel id="month-label">Month</InputLabel>
-        <Select
-          labelId="month-label"
-          multiple
-          value={selectedMonths}
-          onChange={handleMonthChange}
-          renderValue={(selected) => selected.join(", ")}
-        >
-          {uniqueMonths.map((monthOption, index) => (
-            <MenuItem key={index} value={monthOption}>
-              {monthOption}
-            </MenuItem>
-          ))}
-        </Select>
-      </FormControl>
+            <Select
+              labelId="station-label"
+              value={selectedStation}
+              onChange={handleStationChange}
+            >
+              {uniqueStations.map((name, index) => (
+                <MenuItem key={index} value={name}>
+                  {name}
+                </MenuItem>
+              ))}
+            </Select>
+          </FormControl>
 
-      {/* Filter and Download Buttons */}
-      <Button
-        fullWidth
-        variant="contained"
-        color="primary"
-        onClick={filterData}
-        sx={{ mb: 2 }}
-      >
-        Select Data
-      </Button>
+          {/* Year Selection (Multiple) */}
+          <FormControl fullWidth sx={{ mb: 2 }}>
+            <InputLabel id="year-label">
+              {localize(language, "Year")}
+            </InputLabel>
+            <Select
+              labelId="year-label"
+              multiple
+              value={selectedYears}
+              onChange={handleYearChange}
+              renderValue={(selected) => selected.join(", ")}
+            >
+              {uniqueYears.map((yearOption, index) => (
+                <MenuItem key={index} value={yearOption}>
+                  {yearOption}
+                </MenuItem>
+              ))}
+            </Select>
+          </FormControl>
 
-      {filteredData.length > 0 && (
-        <Button
-          fullWidth
-          variant="contained"
-          color="secondary"
-          onClick={downloadCSV}
-        >
-          Download Selected Data
-        </Button>
+          {/* Month Selection (Multiple) */}
+          <FormControl fullWidth sx={{ mb: 2 }}>
+            <InputLabel id="month-label">
+              {localize(language, "Month")}
+            </InputLabel>
+            <Select
+              labelId="month-label"
+              multiple
+              value={selectedMonths}
+              onChange={handleMonthChange}
+              renderValue={(selected) => selected.join(", ")}
+            >
+              {uniqueMonths.map((monthOption, index) => (
+                <MenuItem key={index} value={monthOption}>
+                  {monthOption}
+                </MenuItem>
+              ))}
+            </Select>
+          </FormControl>
+
+          {/* Filter and Download Buttons */}
+          <Button
+            fullWidth
+            variant="contained"
+            color="primary"
+            onClick={filterData}
+            sx={{ mb: 2 }}
+          >
+            {localize(language, "SelectData")}
+          </Button>
+
+          {filteredData.length > 0 && (
+            <Button
+              fullWidth
+              variant="contained"
+              color="secondary"
+              onClick={downloadCSV}
+            >
+              {localize(language, "DownloadData")}
+            </Button>
+          )}
+        </Box>
       )}
-    </Box>
+    </>
   );
 };
 
