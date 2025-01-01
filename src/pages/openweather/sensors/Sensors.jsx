@@ -201,7 +201,14 @@ const Sensors = () => {
         stationId === 16 ||
         stationId === 17 ||
         stationId === 18) && (
-        <Box sx={{ mt: 5 }}>
+        <Box
+          sx={{
+            mt: 5,
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
           <Typography
             variant="body1"
             sx={{ px: 2, color: "darkslateblue", fontWeight: "bold" }}

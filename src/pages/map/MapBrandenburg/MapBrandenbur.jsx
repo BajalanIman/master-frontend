@@ -73,7 +73,7 @@ const MapBrandenbur = () => {
         <div className={styles.map_main_comntainer}>
           <MapContainer
             center={position}
-            zoom={7.5}
+            zoom={7}
             scrollWheelZoom={true}
             style={{
               width: "100%",

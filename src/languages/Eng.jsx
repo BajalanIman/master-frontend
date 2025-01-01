@@ -144,7 +144,7 @@ export default {
   TotalSolarRadiation: "Total Solar Radiation",
   SolarRadiationXCaption:
     "The chart above shows the solar radiation (average and total) daily at 12:00.",
-  StationNoData: " No data is available for this station at the moment.",
+  StationNoData: " No sensor data is available for this station at the moment.",
   CapillaryPotential: "Capillary potential",
   CapillaryPotentialParagraph:
     "Capillary potential, also known as capillary action or soil water potential, refers to the ability of water to move through small spaces in porous materials, such as soil or plant roots, due to adhesive and cohesive forces. It is a critical concept in understanding how water is held and moves within the soil-plant-atmosphere continuum. Capillary potential plays a significant role in soil moisture dynamics, affecting plant growth and the availability of water to roots. In forestry, the distribution of vegetation across landscapes is influenced by capillary potential, which varies depending on the root systems of different plants and the soil's capillary properties. Monitoring and managing capillary potential are essential for assessing soil fertility, optimizing irrigation practices, and mitigating the impacts of drought on forest ecosystems. Understanding these dynamics is crucial for sustainable forestry practices and maintaining the health and productivity of forested areas.",

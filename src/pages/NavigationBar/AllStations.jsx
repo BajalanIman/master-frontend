@@ -70,13 +70,25 @@ const AllStations = () => {
           label="Station"
           onChange={handleStationChange}
         >
-          {stationInformation.map((el, index) =>
-            el.station_name ? (
-              <MenuItem key={index} value={el.station_name}>
-                {el.station_name}
-              </MenuItem>
-            ) : null
-          )}
+          {stationInformation.map((el, index) => {
+            if (!el.station_name) {
+              return null; // Skip if station_name is undefined or null
+            }
+
+            if (
+              el.station_name.includes("Alt-Madlitz") ||
+              el.station_name.includes("Eberswalde: Buch") ||
+              el.station_name.includes("Haselberg")
+            ) {
+              return (
+                <MenuItem key={index} value={el.station_name}>
+                  {el.station_name}
+                </MenuItem>
+              );
+            }
+
+            return null; // Return null if none of the conditions match
+          })}
         </Select>
       </FormControl>
     </Box>
@@ -84,3 +96,13 @@ const AllStations = () => {
 };
 
 export default AllStations;
+// {stationInformation.map((el, index) =>
+//   el.station_name
+//     ? el.station_name.includes("Alt-Madlitz") ||
+//       (el.station_name.includes("Eberswalde: Buch") && (
+//         <MenuItem key={index} value={el.station_name}>
+//           {el.station_name}
+//         </MenuItem>
+//       ))
+//     : null
+// )}
