@@ -11,6 +11,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { Line } from "react-chartjs-2";
 import { localize } from "../../../Translation.jsx";
 import { CartContext } from "../../../App.jsx";
+import { useMediaQuery } from "@mui/material";
 
 const SensorsLinechartMulti = ({
   title,
@@ -230,6 +231,9 @@ const SensorsLinechartMulti = ({
     },
   };
 
+  const isSmallScreen = useMediaQuery("(max-width:600px)");
+  const chartHeight = isSmallScreen ? 250 : 450;
+
   return (
     <>
       {mainData.length > 0 ? (
@@ -242,6 +246,7 @@ const SensorsLinechartMulti = ({
             //   lg: "1000px",
             //   xl: "1400px",
             // },
+
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
@@ -310,7 +315,12 @@ const SensorsLinechartMulti = ({
             </FormControl>
           </Box>
 
-          <Line data={dataToDisplay} options={options} />
+          <Line
+            data={dataToDisplay}
+            options={options}
+            width={isSmallScreen ? 300 : 600}
+            height={isSmallScreen ? 200 : 350}
+          />
           {XCaption && (
             <Typography
               variant="body1"

@@ -11,6 +11,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { Line } from "react-chartjs-2";
 import { localize } from "../../../Translation.jsx";
 import { CartContext } from "../../../App.jsx";
+import { useMediaQuery } from "@mui/material";
 
 const SensorsLinechartMultiClimateTwoside = ({
   title,
@@ -232,6 +233,9 @@ const SensorsLinechartMultiClimateTwoside = ({
   // Check if there is no data at all
   const noDataAtAll = !climateData || climateData.length === 0;
 
+  const isSmallScreen = useMediaQuery("(max-width:600px)");
+  const chartHeight = isSmallScreen ? 250 : 450;
+
   return (
     <>
       {!noDataAtAll ? (
@@ -308,7 +312,12 @@ const SensorsLinechartMultiClimateTwoside = ({
               </Select>
             </FormControl>
           </Box>
-          <Line data={data} options={options} />
+          <Line
+            data={data}
+            options={options}
+            width={isSmallScreen ? 300 : 600}
+            height={isSmallScreen ? 200 : 350}
+          />
           <Typography
             variant="body1"
             sx={{

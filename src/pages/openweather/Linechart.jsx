@@ -33,7 +33,6 @@ function Linechart({ days, newData, componentName, fullName }) {
     datasets: [
       {
         label: componentName,
-
         data: newData,
         borderColor: "rgb(75, 192, 192)",
         pointBorderColor: "aqua",
