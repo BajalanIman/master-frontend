@@ -14,6 +14,7 @@ import {
   Tooltip,
 } from "chart.js";
 import { Box, Typography } from "@mui/material";
+import { useMediaQuery } from "@mui/material";
 
 ChartJS.register(
   LineElement,
@@ -81,26 +82,26 @@ function Linechart({ days, newData, componentName, fullName }) {
     },
   };
 
-  const chartWidth = {
-    xs: "400px",
-    sm: "450px",
-    md: "600px",
-    lg: "1000px",
-    xl: "1400px",
-  };
-  const chartHeight = {
-    xs: "300px",
-    sm: "350px",
-    md: "450px",
-    lg: "600px",
-    xl: "800px",
-  };
+  // const chartWidth = {
+  //   xs: "400px",
+  //   sm: "450px",
+  //   md: "600px",
+  //   lg: "1000px",
+  //   xl: "1400px",
+  // };
+  // const chartHeight = {
+  //   xs: "300px",
+  //   sm: "350px",
+  //   md: "450px",
+  //   lg: "600px",
+  //   xl: "800px",
+  // };
+
+  const isSmallScreen = useMediaQuery("(max-width:600px)");
 
   return (
     <Box
       sx={{
-        width: chartWidth,
-        height: chartHeight,
         maxWidth: "100%",
         display: "flex",
         flexDirection: "column",
@@ -108,9 +109,15 @@ function Linechart({ days, newData, componentName, fullName }) {
         gap: 2,
         paddingX: { xs: 2, lg: 0 },
         paddingBottom: { lg: "120px" },
+        width: "100%",
       }}
     >
-      <Line data={data} options={options}></Line>
+      <Line
+        data={data}
+        options={options}
+        width={isSmallScreen ? 300 : 600}
+        height={isSmallScreen ? 200 : 250}
+      ></Line>
       <Typography
         variant="body1"
         sx={{

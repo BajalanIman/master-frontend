@@ -133,7 +133,7 @@ const Login = () => {
       </div>
       {showInfoPassword && (
         <p className={styles.alert}>
-          Please contact the admin <strong>(admin@hnee.de)</strong>
+          Please contact the admin <strong>(bajalaniman@gmail.com)</strong>
         </p>
       )}
     </div>

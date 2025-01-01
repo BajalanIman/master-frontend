@@ -60,7 +60,7 @@ const AirPollutionForecast = () => {
     sm: "450px",
     md: "600px",
     lg: "1000px",
-    xl: "1400px",
+    xl: "1200px",
   };
 
   return (

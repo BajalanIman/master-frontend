@@ -10,6 +10,7 @@ import axios from "axios";
 import { BASE_URL } from "../../../../constants/constants";
 import { CartContext } from "../../../../App.jsx";
 import { localize } from "../../../../Translation.jsx";
+import { useNavigate } from "react-router-dom";
 
 const StationsData = ({
   variable,
@@ -30,6 +31,7 @@ const StationsData = ({
   const [loading, setLoading] = useState(true);
 
   const { language } = useContext(CartContext);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -110,7 +112,7 @@ const StationsData = ({
     link.download = `filtered_${variable}_${selectedStation}_data.csv`;
     link.click();
     URL.revokeObjectURL(url);
-    window.location.reload();
+    navigate("/");
   };
 
   return (

@@ -47,7 +47,7 @@ const NewUsers = () => {
   };
 
   const submitFormHandler = (event) => {
-    if (!emailValue.includes("@") || !emailValue.includes(".com")) {
+    if (!emailValue.includes("@")) {
       event.preventDefault();
       setErrorMessage("Your email is not correct!");
       setTimeout(() => {
@@ -73,11 +73,6 @@ const NewUsers = () => {
       }, 5000);
     } else {
       event.preventDefault();
-      // setEmailValue("");
-      // setPasswordValue("");
-      // localStorage.setItem("username", emailValue);
-      // localStorage.setItem("password", passwordValue);
-      // const { password, first_name, last_name, phone_number, email, role } =
       const data = {
         password: passwordValue,
         first_name: nameValue,
@@ -150,7 +145,17 @@ const NewUsers = () => {
 
   return (
     <>
-      <div className="w-full h-screen justify-center items-center flex flex-col mt-14 mb-32">
+      <Box
+        sx={{
+          width: "100%",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
+          paddingTop: 20,
+          paddingBottom: 20,
+        }}
+      >
         <Typography
           variant="h5"
           sx={{
@@ -326,7 +331,7 @@ const NewUsers = () => {
           </Typography>
         </Box>
         <PopupEnrolment open={open} onClose={handleClose}></PopupEnrolment>
-      </div>
+      </Box>
     </>
   );
 };

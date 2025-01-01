@@ -79,17 +79,19 @@ const ContactForm = () => {
                 sx={{ width: "300px" }}
               />
               <Box sx={{ display: "flex", gap: 2, marginTop: 3 }}>
-                <Button
-                  onClick={sendMessageHandler}
-                  sx={{
-                    color: "white",
-                    width: 140,
-                    backgroundColor: "orange",
-                    ":hover": { backgroundColor: "#ff7d4d" },
-                  }}
-                >
-                  Send Message
-                </Button>
+                <Link to="/">
+                  <Button
+                    onClick={sendMessageHandler}
+                    sx={{
+                      color: "white",
+                      width: 140,
+                      backgroundColor: "orange",
+                      ":hover": { backgroundColor: "#ff7d4d" },
+                    }}
+                  >
+                    Send Message
+                  </Button>
+                </Link>
                 <Link to="/">
                   <Button
                     sx={{

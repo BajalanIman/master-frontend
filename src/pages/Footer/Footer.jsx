@@ -87,12 +87,12 @@ const Footer = () => {
             <Instagram />
           </a>
         </IconButton>
-        <IconButton variant="plain">
+        {/* <IconButton variant="plain">
           <Twitter />
         </IconButton>
         <IconButton variant="plain">
           <YouTube />
-        </IconButton>
+        </IconButton> */}
         <Input
           variant="soft"
           placeholder="Type in your email"
@@ -214,10 +214,10 @@ const Footer = () => {
                     fontSize: { xs: "12px" },
                   }}
                 >
-                  <strong>Tel.:</strong> (+49) 03334 000 000
+                  <strong>Tel.:&nbsp;</strong> (+49) 03334 000 000
                 </ListItemButton>
               </ListItem>
-              <ListItem>
+              {/* <ListItem>
                 <ListItemButton
                   sx={{
                     marginBottom: { lg: "-30px" },
@@ -226,14 +226,14 @@ const Footer = () => {
                 >
                   <strong>Fax: </strong> (+49) 03334 000 000
                 </ListItemButton>
-              </ListItem>
+              </ListItem> */}
               <ListItem
                 sx={{
-                  fontSize: { xs: "12px" },
+                  fontSize: { xs: "12px", marginTop: "15px" },
                 }}
               >
                 <ListItemButton>
-                  <strong>Email: </strong> Iman.Bajalan@hnee.de
+                  <strong>Email:&nbsp;</strong> Iman.Bajalan@hnee.de
                 </ListItemButton>
               </ListItem>
               <ListItem>
@@ -261,7 +261,7 @@ const Footer = () => {
           />
         </Box>
         <Typography level="body-xs">
-          @ This application has been created by Iman Bajalan.
+          © This application has been created by Iman Bajalan, 2025.
         </Typography>
       </Box>
     </Sheet>
