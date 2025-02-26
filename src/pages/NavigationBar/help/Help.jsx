@@ -11,66 +11,75 @@ const Help = () => {
   return (
     <div className={styles.help_container}>
       <div className={styles.help}>
-        <h4 className={styles.titles}>
+        <Typography
+          variant="h5"
+          sx={{ marginTop: "30px", marginBottom: "10px", fontWeight: "bold" }}
+        >
           {localize(language, "helpNavigating")}
-        </h4>
+        </Typography>
         <p className={styles.paragraphs}>
           {localize(language, "helpNavigatingP")}
         </p>
-        <h4 className={styles.sub_titles}>
-          {localize(language, "gettingStarted")}
-        </h4>
+        <Typography
+          variant="h6"
+          sx={{ marginTop: 2, marginBottom: 1, fontWeight: "bold" }}
+        >
+          1. {localize(language, "gettingStarted")}
+        </Typography>
         <p className={styles.paragraphs}>
           {localize(language, "gettingStartedP")}
         </p>
         <h4 className={styles.sub_titles}>
-          {"1: "} {localize(language, "exploreFeatures")}
+          {"1.1. "} {localize(language, "exploreFeatures")}
         </h4>
         <p className={styles.paragraphs}>
           {localize(language, "exploreFeaturesP")}
         </p>
         <h4 className={styles.sub_titles}>
-          {"2: "} {localize(language, "navigatingDashboard")}
+          {"1.2. "} {localize(language, "navigatingDashboard")}
         </h4>
         <p className={styles.paragraphs}>
           {localize(language, "navigatingDashboardP")}
         </p>
         <h4 className={styles.sub_titles}>
-          {"3: "} {localize(language, "interactiveMapsHelp")}
+          {"1.3. "} {localize(language, "interactiveMapsHelp")}
         </h4>
         <p className={styles.paragraphs}>
           {localize(language, "interactiveMapsHelpP1")}
         </p>
         <h4 className={styles.sub_titles}>
-          {"4: "} {localize(language, "accessingData")}
+          {"1.4. "} {localize(language, "accessingData")}
         </h4>
         <p className={styles.paragraphs}>
           {localize(language, "accessingDataP1")}
         </p>
         <hr className={styles.deviders}></hr>{" "}
-        <h5 className={styles.titles}>
-          {localize(language, "frequentlyAskedQuestions")}
-        </h5>
+        <Typography
+          variant="h6"
+          sx={{ marginTop: 2, marginBottom: 1, fontWeight: "bold" }}
+        >
+          2. {localize(language, "frequentlyAskedQuestions")}
+        </Typography>
         <h5 className={styles.sub_titles}>
-          {localize(language, "howFrequentlyUpdated")}
+          2.1. {localize(language, "howFrequentlyUpdated")}
         </h5>
         <p className={styles.paragraphs}>
           {localize(language, "howFrequentlyUpdatedP1")}{" "}
         </p>
         <h5 className={styles.sub_titles}>
-          {localize(language, "canAccessHistoricalData")}{" "}
+          2.2. {localize(language, "canAccessHistoricalData")}{" "}
         </h5>
         <p className={styles.paragraphs}>
           {localize(language, "canAccessHistoricalDataP1")}
         </p>
         <h5 className={styles.sub_titles}>
-          {localize(language, "HowCanInterpretDat")}{" "}
+          2.3 {localize(language, "HowCanInterpretDat")}{" "}
         </h5>
         <p className={styles.paragraphs}>
           {localize(language, "HowCanInterpretDatP1")}
         </p>
         <h5 className={styles.sub_titles}>
-          {localize(language, "accessibleMobileDevices")}
+          2.4. {localize(language, "accessibleMobileDevices")}
         </h5>
         <p className={styles.paragraphs}>
           {localize(language, "accessibleMobileDevicesP1")}{" "}

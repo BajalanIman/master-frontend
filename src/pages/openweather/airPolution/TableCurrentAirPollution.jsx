@@ -15,11 +15,11 @@ function createData(name, value) {
 const TableCurrentAirPollution = ({ openWeaterAll }) => {
   const rows = [
     createData("Carbon Monoxide (CO)", openWeaterAll.co),
-    createData("Ammonia (NH3)", openWeaterAll.nh3),
+    createData("Ammonia (NH₃)", openWeaterAll.nh3),
     createData("Nitrogen Monoxide (NO)", openWeaterAll.no),
-    createData("Nitrogen Dioxide (NO2)", openWeaterAll.no2),
-    createData("Ozone (O3)", openWeaterAll.o3),
-    createData("Sulfur Dioxide (SO2)", openWeaterAll.so2),
+    createData("Nitrogen Dioxide (NO₂)", openWeaterAll.no2),
+    createData("Ozone (O₃)", openWeaterAll.o3),
+    createData("Sulfur Dioxide (SO₂)", openWeaterAll.so2),
     createData("pm2_5", openWeaterAll.pm2_5),
     createData("pm10", openWeaterAll.pm10),
   ];
@@ -46,7 +46,7 @@ const TableCurrentAirPollution = ({ openWeaterAll }) => {
                   height: "56px",
                 }}
               >
-                Value &nbsp;(μg/m3)
+                Value &nbsp;(μg/m³)
               </TableCell>
             </TableRow>
           </TableHead>

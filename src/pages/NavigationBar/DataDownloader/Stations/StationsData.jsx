@@ -25,8 +25,6 @@ const StationsData = ({
   const [selectedYears, setSelectedYears] = useState([]);
   const [selectedMonths, setSelectedMonths] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
-  const [uniqueYears, setUniqueYears] = useState([]);
-  const [uniqueMonths, setUniqueMonths] = useState([]);
   const [uniqueStations, setUniqueStations] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -39,21 +37,14 @@ const StationsData = ({
         setLoading(true);
         const response = await axios.get(`${BASE_URL}${endPoint}`);
         setStationInformation(response.data);
-        // Extract unique years, months, and stations
-        const years = new Set();
-        const months = new Set();
+
+        // Extract unique stations
         const stations = new Set();
         response.data.forEach((el) => {
-          const [year, month] = el.date_time.split("-");
-          years.add(year);
-          months.add(month);
           if (el.station?.station_name) {
             stations.add(el.station.station_name);
           }
         });
-
-        setUniqueYears([...years].sort());
-        setUniqueMonths([...months].sort((a, b) => parseInt(a) - parseInt(b)));
         setUniqueStations([...stations]);
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -65,8 +56,50 @@ const StationsData = ({
     fetchData();
   }, [endPoint]);
 
+  // Calculate available years based on selected station
+  const availableYears = selectedStation
+    ? Array.from(
+        new Set(
+          stationInformation
+            .filter((el) => el.station?.station_name === selectedStation)
+            .map((el) => el.date_time.split("-")[0])
+        )
+      ).sort()
+    : [];
+
+  // Calculate available months based on selected station and years
+  const availableMonths =
+    selectedStation && selectedYears.length > 0
+      ? Array.from(
+          new Set(
+            stationInformation
+              .filter(
+                (el) =>
+                  el.station?.station_name === selectedStation &&
+                  selectedYears.includes(el.date_time.split("-")[0])
+              )
+              .map((el) => el.date_time.split("-")[1])
+          )
+        ).sort((a, b) => a - b)
+      : [];
+
+  useEffect(() => {
+    // Automatically filter data when selections change
+    const filtered = stationInformation.filter((el) => {
+      const [year, month] = el.date_time.split("-");
+      return (
+        (!selectedStation || el.station?.station_name === selectedStation) &&
+        (selectedYears.length === 0 || selectedYears.includes(year)) &&
+        (selectedMonths.length === 0 || selectedMonths.includes(month))
+      );
+    });
+    setFilteredData(filtered);
+  }, [selectedStation, selectedYears, selectedMonths, stationInformation]);
+
   const handleStationChange = (event) => {
     setSelectedStation(event.target.value);
+    setSelectedYears([]);
+    setSelectedMonths([]);
   };
 
   const handleYearChange = (event) => {
@@ -76,25 +109,6 @@ const StationsData = ({
 
   const handleMonthChange = (event) => {
     setSelectedMonths(event.target.value);
-  };
-
-  const filterData = () => {
-    const filtered = stationInformation.filter((el) => {
-      const [year, month] = el.date_time.split("-");
-
-      const matchesStation =
-        !selectedStation || el.station?.station_name === selectedStation;
-
-      const matchesYear =
-        selectedYears.length === 0 || selectedYears.includes(year);
-
-      const matchesMonth =
-        selectedMonths.length === 0 || selectedMonths.includes(month);
-
-      return matchesStation && matchesYear && matchesMonth;
-    });
-
-    setFilteredData(filtered);
   };
 
   const downloadCSV = () => {
@@ -142,7 +156,6 @@ const StationsData = ({
             <InputLabel id="station-label">
               {localize(language, "Station")}
             </InputLabel>
-
             <Select
               labelId="station-label"
               value={selectedStation}
@@ -167,8 +180,9 @@ const StationsData = ({
               value={selectedYears}
               onChange={handleYearChange}
               renderValue={(selected) => selected.join(", ")}
+              disabled={!selectedStation}
             >
-              {uniqueYears.map((yearOption, index) => (
+              {availableYears.map((yearOption, index) => (
                 <MenuItem key={index} value={yearOption}>
                   {yearOption}
                 </MenuItem>
@@ -187,8 +201,9 @@ const StationsData = ({
               value={selectedMonths}
               onChange={handleMonthChange}
               renderValue={(selected) => selected.join(", ")}
+              disabled={selectedYears.length === 0}
             >
-              {uniqueMonths.map((monthOption, index) => (
+              {availableMonths.map((monthOption, index) => (
                 <MenuItem key={index} value={monthOption}>
                   {monthOption}
                 </MenuItem>
@@ -196,17 +211,7 @@ const StationsData = ({
             </Select>
           </FormControl>
 
-          {/* Filter and Download Buttons */}
-          <Button
-            fullWidth
-            variant="contained"
-            color="primary"
-            onClick={filterData}
-            sx={{ mb: 2 }}
-          >
-            {localize(language, "SelectData")}
-          </Button>
-
+          {/* Download Button */}
           {filteredData.length > 0 && (
             <Button
               fullWidth

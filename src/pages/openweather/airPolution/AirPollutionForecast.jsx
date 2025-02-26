@@ -97,50 +97,50 @@ const AirPollutionForecast = () => {
       <Linechart
         days={days}
         newData={allData.map((el) => el.co)}
-        componentName={"Co (μg/m3)"}
-        fullName={"Carbon monoxide (Co)"}
+        componentName={"CO (μg/m³)"}
+        fullName={"Carbon monoxide (CO)"}
       />
       <Linechart
         days={days}
         newData={allData.map((el) => el.no)}
-        componentName={"NO (μg/m3)"}
-        fullName={"Nitrogen monoxide (No)"}
+        componentName={"NO (μg/m³)"}
+        fullName={"Nitrogen monoxide (NO)"}
       />
       <Linechart
         days={days}
         newData={allData.map((el) => el.no2)}
-        componentName={"NO2 (μg/m3)"}
-        fullName={"Nitrogen dioxide (NO2)"}
+        componentName={"NO₂ (μg/m³)"}
+        fullName={"Nitrogen dioxide (NO₂)"}
       />
       <Linechart
         days={days}
         newData={allData.map((el) => el.nh3)}
-        componentName={"NH3 (μg/m3)"}
-        fullName={"Ammonia (NH3)"}
+        componentName={"NH₃ (μg/m³)"}
+        fullName={"Ammonia (NH₃)"}
       />
       <Linechart
         days={days}
         newData={allData.map((el) => el.o3)}
-        componentName={"O3 (μg/m3)"}
-        fullName={"Ozone (O3)"}
+        componentName={"O₃ (μg/m³)"}
+        fullName={"Ozone (O₃)"}
       />
       <Linechart
         days={days}
         newData={allData.map((el) => el.so2)}
-        componentName={"SO2 (μg/m3)"}
-        fullName={"Sulphur dioxide (SO2)"}
+        componentName={"SO₂ (μg/m³)"}
+        fullName={"Sulphur dioxide (SO₂)"}
       />
       <Linechart
         days={days}
         newData={allData.map((el) => el.pm10)}
-        componentName={"PM10 (μg/m3)"}
-        fullName={"particulat (PM10)"}
+        componentName={"PM10 (μg/m³)"}
+        fullName={"Particulat (PM10)"}
       />
       <Linechart
         days={days}
         newData={allData.map((el) => el.pm2_5)}
-        componentName={"PM2.5 (μg/m3)"}
-        fullName={"particulat (PM2.5)"}
+        componentName={"PM2.5 (μg/m³)"}
+        fullName={"Particulat (PM2.5)"}
       />
     </Box>
   );

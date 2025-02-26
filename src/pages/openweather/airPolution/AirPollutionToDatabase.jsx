@@ -56,8 +56,9 @@ const AirPollutionToDatabase = ({ stlocation, stName, customWidth }) => {
         <Box
           sx={{
             width: customWidth,
-            display: { xs: "inline", lg: "flex" },
+            display: "flex",
             justifyContent: "center",
+            alignItems: "center",
             paddingX: { xs: 2, lg: 0 },
           }}
         >
@@ -69,17 +70,22 @@ const AirPollutionToDatabase = ({ stlocation, stName, customWidth }) => {
               textAlign: "justify",
             }}
           >
-            {localize(language, "AirPollutionCaption")} {stName}.
+            {localize(language, "AirPollutionCaption")} {stName}
           </Typography>
-          <Button onClick={handleClickOpen}>
+
+          {/* <Button onClick={handleClickOpen}>
             ({openWeaterLat},{openWeaterLon}).
-          </Button>
+          </Button> */}
         </Box>
       </Box>
-      <TableCurrentAirPollution openWeaterAll={openWeaterAll} />
-      <Typography variant="h6" sx={{ fontSize: "12px" }}>
-        {localize(language, "AirPollutionCaption")}
+      <Typography
+        variant="body1"
+        sx={{ fontSize: "12px", paddingX: { xs: 2, lg: 0 } }}
+      >
+        {localize(language, "AirPollutionCaptionInfo")}
       </Typography>
+      <TableCurrentAirPollution openWeaterAll={openWeaterAll} />
+
       <PopupMap
         open={open}
         setOpen={setOpen}

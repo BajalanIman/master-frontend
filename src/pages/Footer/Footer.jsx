@@ -151,7 +151,7 @@ const Footer = () => {
             </AspectRatio>
             <CardContent>
               <Typography level="body-sm" sx={{ fontWeight: "bold" }}>
-                Eberswalde University for Sustainable Development
+                Hochschule für nachhaltige Entwicklung Eberswalde (HNEE)
               </Typography>
             </CardContent>
           </Card>

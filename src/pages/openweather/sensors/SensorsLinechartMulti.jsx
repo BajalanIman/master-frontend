@@ -326,7 +326,6 @@ const SensorsLinechartMulti = ({
               variant="body1"
               sx={{
                 fontWeight: "bold",
-                fontStyle: "italic",
                 paddingX: { xs: 2, md: 0 },
               }}
             >
