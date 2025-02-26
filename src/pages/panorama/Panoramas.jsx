@@ -97,7 +97,7 @@ const Panoramas = () => {
   }, []);
 
   const customWidth = {
-    xs: "400px",
+    xs: "380px",
     sm: "450px",
     md: "600px",
     lg: "1000px",
