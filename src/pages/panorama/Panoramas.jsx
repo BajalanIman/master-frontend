@@ -36,13 +36,13 @@ const Panoramas = () => {
         return 8;
       case "Eberswalde: Pure pine station":
         return 9;
-      case "Alt-Madlitz: Conventional":
-        return 10;
       case "Alt-Madlitz: Clear cut":
-        return 11;
+        return 10;
       case "Alt-Madlitz: Mikado":
-        return 12;
+        return 11;
       case "Alt-Madlitz: Syntropic":
+        return 12;
+      case "Alt-Madlitz: Conventional":
         return 13;
       case "Alt-Madlitz: Natural succession dynamics":
         return 14;
