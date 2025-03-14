@@ -114,7 +114,7 @@ export default {
   downloadSoilVariables:
     "Bitte wählen Sie Ihre Station aus und laden Sie die gewünschten Variablen herunter.",
   downloadVariables:
-    "Bitte wählen Sie Ihre Station aus und laden Sie die gewünschten Klimavariablen herunter.",
+    "Bitte wählen Sie Jahr und Monat aus und laden Sie Ihre Daten herunter.",
   Year: "Jahr",
   Month: "Monat",
   SelectData: "Daten auswählen",

@@ -126,7 +126,8 @@ const StationsData = ({
     link.download = `filtered_${variable}_${selectedStation}_data.csv`;
     link.click();
     URL.revokeObjectURL(url);
-    navigate("/");
+    // navigate("/");
+    window.location.reload();
   };
 
   return (

@@ -113,8 +113,7 @@ export default {
   PanoramaDescription:
     "This is a panorama. By clicking, you can view a 360° overview.",
   dataDownloadWelcome: "Welcome to the data downloader page",
-  downloadVariables:
-    "Please select your station and download your chosen variables.",
+  downloadVariables: "Please select the year and month and download your data.",
   Year: "Year",
   Month: "Month",
   SelectData: "Select Data",
